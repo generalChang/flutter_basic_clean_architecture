@@ -7,7 +7,8 @@ import '../../../core/helper/usecase/use_case.dart';
 import '../../../core/helper/usecase/use_case_result.dart';
 import '../../../domain/auth/params/sign_up_params.dart';
 
-final signUpViewModelProvider = StateNotifierProvider((ref) {
+final signUpViewModelProvider =
+    StateNotifierProvider.autoDispose<SignUpViewModel, SignUpState>((ref) {
   return SignUpViewModel(signUpUseCase: ref.watch(signUpUseCaseProvider));
 });
 
