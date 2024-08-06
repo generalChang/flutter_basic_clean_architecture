@@ -8,6 +8,22 @@ class SignUpState {
   final LoadingStatus signUpLoadingStatus;
   final String? signUpErrorMessage;
 
+  bool get isSignUpLoading => signUpLoadingStatus == LoadingStatus.loading;
+  bool get isSignUpError => signUpLoadingStatus == LoadingStatus.error;
+
+  bool get signUpButtonEnabled =>
+      name != null && email != null && password != null;
+
+  bool get isNameValid => name == null || (name != null && name!.isNotEmpty);
+  bool get isEmailValid =>
+      email == null || (email != null && email!.isNotEmpty);
+  bool get isPasswordValid =>
+      password == null || (password != null && password!.isNotEmpty);
+
+  final String nameErrorMessage = '이름을 다시 입력해주세요';
+  final String emailErrorMessage = '이메일을 다시 입력해주세요';
+  final String passwordErrorMessage = '비밀번호를 다시 입력해주세요';
+
   const SignUpState({
     this.name,
     this.email,
