@@ -12,7 +12,7 @@ class SignUpState {
   bool get isSignUpError => signUpLoadingStatus == LoadingStatus.error;
 
   bool get signUpButtonEnabled =>
-      name != null && email != null && password != null;
+      name != null && email != null && password != null && !isSignUpLoading;
 
   bool get isNameValid => name == null || (name != null && name!.isNotEmpty);
   bool get isEmailValid =>
