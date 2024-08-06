@@ -3,6 +3,7 @@ import 'package:flutter_best_practice/manager/router/app_router_intercepter.dart
 import 'package:flutter_best_practice/manager/router/redirect_notifier.dart';
 import 'package:flutter_best_practice/manager/router/routes.dart';
 import 'package:flutter_best_practice/ui/auth/sign_in/sign_in_view.dart';
+import 'package:flutter_best_practice/ui/home/home_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,7 +27,7 @@ class AppRouter {
 
   late final _router = GoRouter(
     navigatorKey: rootNavigatorKey,
-    initialLocation: '/auth/sign-in',
+    initialLocation: Routes.home.name,
     redirect: _appRouterInterceptor.redirect,
     refreshListenable: _refreshListenable,
     routes: <RouteBase>[
@@ -47,7 +48,11 @@ class AppRouter {
                 builder: (context, state) {
                   return const SignInView();
                 })
-          ])
+          ]),
+      GoRoute(
+          path: Routes.home.path,
+          name: Routes.home.name,
+          builder: (context, state) => const HomeView())
     ],
   );
 

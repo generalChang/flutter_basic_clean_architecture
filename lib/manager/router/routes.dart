@@ -11,4 +11,7 @@ class Routes {
 
   static const RouteInfo signUp =
       RouteInfo(name: '/auth/sign-up', path: 'sign-up');
+
+  static const RouteInfo home =
+      RouteInfo(name: '/home', path: '/home');
 }
