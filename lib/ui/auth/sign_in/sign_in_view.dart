@@ -8,6 +8,7 @@ class SignInView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(signInViewModelProvider);
+    final viewmodel = ref.read(signInViewModelProvider.notifier);
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
@@ -19,8 +20,11 @@ class SignInView extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              // email text field
               TextField(
-                onChanged: (String val) {},
+                onChanged: (String val) {
+                  viewmodel.updateEmail(email: val);
+                },
                 onTapOutside: (event) {
                   FocusManager.instance.primaryFocus?.unfocus();
                 },
@@ -39,8 +43,12 @@ class SignInView extends ConsumerWidget {
               const SizedBox(
                 height: 20,
               ),
+
+              // password text field
               TextField(
-                onChanged: (String val) {},
+                onChanged: (String val) {
+                  viewmodel.updatePassword(password: val);
+                },
                 obscureText: true,
                 onTapOutside: (event) {
                   FocusManager.instance.primaryFocus?.unfocus();
@@ -60,6 +68,8 @@ class SignInView extends ConsumerWidget {
               const SizedBox(
                 height: 20,
               ),
+
+              // login button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -70,12 +80,18 @@ class SignInView extends ConsumerWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         padding: const EdgeInsets.all(16)),
-                    onPressed: () {},
+                    onPressed: state.isSignInLoading
+                        ? null
+                        : () {
+                            viewmodel.signIn();
+                          },
                     child: const Text('로그인 하기')),
               ),
               const SizedBox(
                 height: 10,
               ),
+
+              // go to sign up button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -89,9 +105,7 @@ class SignInView extends ConsumerWidget {
                     onPressed: () {},
                     child: const Text('회원가입 하기')),
               ),
-              SizedBox(
-                height: MediaQuery.of(context).viewInsets.bottom
-              )
+              SizedBox(height: MediaQuery.of(context).viewInsets.bottom)
             ],
           ),
         ),

@@ -6,6 +6,9 @@ class SignInState {
   final LoadingStatus signInLoadingStatus;
   final String? signInErrorMessage;
 
+  bool get isSignInLoading => signInLoadingStatus == LoadingStatus.loading;
+  bool get isSignInError => signInLoadingStatus == LoadingStatus.error;
+
   const SignInState({
     this.email,
     this.password,
