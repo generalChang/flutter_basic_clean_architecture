@@ -19,4 +19,9 @@ class AppManagerImpl extends StateNotifier<AppState> implements AppManager {
   Future<void> signIn({required bool isSignIn}) async {
     state = state.copyWith(isSignIn: isSignIn);
   }
+
+  @override
+  Future<void> signOut() async {
+    state = state.copyWith(isSignIn: false);
+  }
 }
