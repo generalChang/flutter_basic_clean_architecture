@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_best_practice/manager/router/routes.dart';
 import 'package:flutter_best_practice/ui/auth/sign_in/sign_in_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class SignInView extends ConsumerWidget {
   const SignInView({super.key});
@@ -102,7 +104,9 @@ class SignInView extends ConsumerWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         padding: const EdgeInsets.all(16)),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pushNamed(Routes.signUp.name);
+                    },
                     child: const Text('회원가입 하기')),
               ),
               SizedBox(height: MediaQuery.of(context).viewInsets.bottom)
