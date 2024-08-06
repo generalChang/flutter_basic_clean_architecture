@@ -2,6 +2,10 @@
 import '../../core/helper/route/route_info.dart';
 
 class Routes {
+
+  static const RouteInfo auth =
+  RouteInfo(name: '/auth', path: '/auth');
+
   static const RouteInfo signIn =
       RouteInfo(name: '/auth/sign-in', path: 'sign-in');
 
