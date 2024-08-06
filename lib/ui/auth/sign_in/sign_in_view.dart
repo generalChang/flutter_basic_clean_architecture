@@ -89,6 +89,9 @@ class SignInView extends ConsumerWidget {
                     onPressed: () {},
                     child: const Text('회원가입 하기')),
               ),
+              SizedBox(
+                height: MediaQuery.of(context).viewInsets.bottom
+              )
             ],
           ),
         ),

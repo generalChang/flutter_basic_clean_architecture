@@ -15,12 +15,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+            elevation: 0,
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.white,
+            scrolledUnderElevation: 0),
         useMaterial3: true,
       ),
       home: const SignInView(),
     );
   }
 }
-
-
