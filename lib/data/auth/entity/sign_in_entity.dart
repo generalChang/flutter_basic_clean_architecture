@@ -4,8 +4,9 @@ part 'generated/sign_in_entity.g.dart';
 
 /*
 설명
-- 로그인 API 호출 시 Response와 1대1 대응되는 객체
+- Api 호출 후 Http Reponse와 1대1 대응되는 객체 혹은 Local db의 entity를 의미
 - 속성의 값을 무단으로 변경할 수 없음
+- 여기선 로그인 API 호출 시 Response와 1대1 대응되는 객체
 
 사용법
 - DataSource의 반환타입으로 지정

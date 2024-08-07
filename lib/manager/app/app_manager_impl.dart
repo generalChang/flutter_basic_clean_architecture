@@ -9,6 +9,8 @@ final appManagerProvider =
   return AppManagerImpl();
 });
 
+// 인터페이스 분리 원칙이 적용되어 있음
+// 인터페이스의 이름을 ~~Able이라고 만들어주었음 (느낌 오는 네이밍이 떠오르지 않네요)
 class AppManagerImpl extends StateNotifier<AppState>
     implements AppInitAble, AppSignInAble, AppSignOutAble {
   AppManagerImpl() : super(AppState.init());

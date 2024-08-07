@@ -15,7 +15,7 @@ import '../params/sign_up_params.dart';
 
 사용법
 - usecase의 요구사항 명세를 의미하는 repository 추상체를 일단 만듦
-  - usecase 입장에서 'payload를 넘겨줄태니 이런 데이터를 나한테 넘겨라' 라는 요구사항을 담은 명세가 repository interface임
+  - repository 추상체는 일종의 usecase의 명령서임 (repository야!! 내가 이런 데이터를 줄태니 이런 형태의 데이터를 가지고 오렴..?)
   - 즉, repository interface는 usecase가 통제하고 있음
 - UseCase interface를 구현하여 오버라이딩
 - Provider를 통해 의존성 관리
