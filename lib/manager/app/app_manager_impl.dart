@@ -1,5 +1,7 @@
-import 'package:flutter_best_practice/manager/app/app_manager.dart';
 import 'package:flutter_best_practice/manager/app/app_state.dart';
+import 'package:flutter_best_practice/manager/app/interface/app_init_able.dart';
+import 'package:flutter_best_practice/manager/app/interface/app_sign_in_able.dart';
+import 'package:flutter_best_practice/manager/app/interface/app_sign_out_able.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final appManagerProvider =
@@ -7,7 +9,8 @@ final appManagerProvider =
   return AppManagerImpl();
 });
 
-class AppManagerImpl extends StateNotifier<AppState> implements AppManager {
+class AppManagerImpl extends StateNotifier<AppState>
+    implements AppInitAble, AppSignInAble, AppSignOutAble {
   AppManagerImpl() : super(AppState.init());
 
   @override

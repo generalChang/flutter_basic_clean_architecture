@@ -1,6 +1,7 @@
 import 'package:flutter_best_practice/core/status/loading_status.dart';
 import 'package:flutter_best_practice/domain/auth/use_case/sign_in_use_case.dart';
 import 'package:flutter_best_practice/manager/app/app_manager_impl.dart';
+import 'package:flutter_best_practice/manager/app/interface/app_sign_in_able.dart';
 import 'package:flutter_best_practice/ui/auth/sign_in/sign_in_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,7 +9,6 @@ import '../../../core/helper/usecase/use_case.dart';
 import '../../../core/helper/usecase/use_case_result.dart';
 import '../../../domain/auth/model/sign_in_model.dart';
 import '../../../domain/auth/params/sign_in_params.dart';
-import '../../../manager/app/app_manager.dart';
 
 /*
 설명
@@ -33,11 +33,11 @@ final signInViewModelProvider =
 
 class SignInViewModel extends StateNotifier<SignInState> {
   final UseCase<SignInModel, SignInParams> _signInUseCase;
-  final AppManager _appManager;
+  final AppSignInAble _appManager;
 
   SignInViewModel(
       {required UseCase<SignInModel, SignInParams> signInUseCase,
-      required AppManager appManager})
+      required AppSignInAble appManager})
       : _appManager = appManager,
         _signInUseCase = signInUseCase,
         super(SignInState.init());
