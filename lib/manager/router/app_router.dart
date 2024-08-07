@@ -3,6 +3,7 @@ import 'package:flutter_best_practice/manager/router/app_router_intercepter.dart
 import 'package:flutter_best_practice/manager/router/redirect_notifier.dart';
 import 'package:flutter_best_practice/manager/router/routes.dart';
 import 'package:flutter_best_practice/ui/auth/sign_in/sign_in_view.dart';
+import 'package:flutter_best_practice/ui/auth/sign_up/sign_up_view.dart';
 import 'package:flutter_best_practice/ui/home/home_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -47,7 +48,11 @@ class AppRouter {
                 name: Routes.signIn.name,
                 builder: (context, state) {
                   return const SignInView();
-                })
+                }),
+            GoRoute(path: Routes.signUp.path, name: Routes.signUp.name,
+            builder: (context, state){
+              return const SignUpView();
+            })
           ]),
       GoRoute(
           path: Routes.home.path,

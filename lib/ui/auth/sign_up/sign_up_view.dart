@@ -1,14 +1,146 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_best_practice/core/status/loading_status.dart';
+import 'package:flutter_best_practice/ui/auth/sign_up/sign_up_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpView extends ConsumerWidget {
   const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(signUpViewModelProvider);
+    final viewModel = ref.read(signUpViewModelProvider.notifier);
+
+    ref.listen(
+        signUpViewModelProvider.select((state) => state.signUpLoadingStatus),
+        (prev, next) {
+      if (next == LoadingStatus.success) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('회원가입에 성공하였습니다.'),
+          backgroundColor: Colors.orange,
+          duration: Duration(seconds: 3),
+        ));
+        context.pop();
+      } else if (next == LoadingStatus.error) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('회원가입에 실패하였습니다.'),
+          backgroundColor: Colors.redAccent,
+          duration: Duration(seconds: 3),
+        ));
+      }
+    });
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('sign up view'),
+        toolbarHeight: 44,
+        title: const Text('회원가입'),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(56),
+          child: Container(),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: ListView(
+          children: <Widget>[
+            // name text field
+            TextField(
+              onChanged: (String val) {
+                viewModel.updateName(name: val);
+              },
+              onTapOutside: (event) {
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              decoration: InputDecoration(
+                  label: const Text('이름'),
+                  filled: true,
+                  fillColor: Colors.grey.shade200,
+                  enabledBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                  focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                  errorText: state.isNameValid ? null : state.nameErrorMessage),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+
+            // email text field
+            TextField(
+              onChanged: (String val) {
+                viewModel.updateEmail(email: val);
+              },
+              onTapOutside: (event) {
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              decoration: InputDecoration(
+                  label: const Text('이메일'),
+                  filled: true,
+                  fillColor: Colors.grey.shade200,
+                  enabledBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                  focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                  errorText:
+                      state.isEmailValid ? null : state.emailErrorMessage),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+
+            // password text field
+            TextField(
+              onChanged: (String val) {
+                viewModel.updatePassword(password: val);
+              },
+              obscureText: true,
+              onTapOutside: (event) {
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              decoration: InputDecoration(
+                  label: const Text('비밀번호'),
+                  filled: true,
+                  fillColor: Colors.grey.shade200,
+                  enabledBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                  focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                  errorText: state.isPasswordValid
+                      ? null
+                      : state.passwordErrorMessage),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+
+            // login button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      textStyle: const TextStyle(fontSize: 18),
+                      backgroundColor: Colors.orange.shade500,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      padding: const EdgeInsets.all(16)),
+                  onPressed: state.signUpButtonEnabled
+                      ? () {
+                          viewModel.signUp();
+                        }
+                      : null,
+                  child: const Text('회원가입 하기')),
+            ),
+            SizedBox(height: MediaQuery.of(context).viewInsets.bottom)
+          ],
+        ),
       ),
     );
   }

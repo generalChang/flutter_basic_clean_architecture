@@ -33,17 +33,23 @@ class SignUpViewModel extends StateNotifier<SignUpState> {
   Future<void> signUp() async {
     state = state.copyWith(signUpLoadingStatus: LoadingStatus.loading);
 
-    final resp = await _signUpUseCase(
-        params: SignUpParams(
-            email: state.email!, password: state.password!, name: state.name!));
+    // final resp = await _signUpUseCase(
+    //     params: SignUpParams(
+    //         email: state.email!, password: state.password!, name: state.name!));
+
+
+    // 네트워크 레이턴시가 2초정도라 가정
+    await Future.delayed(Duration(seconds: 2));
+    // 서버 요청 후 성공적으로 응답을 받아왔다고 가정
+    const resp = SuccessUseCaseResult<void>(data: null);
 
     switch (resp) {
       case SuccessUseCaseResult<void>():
         state = state.copyWith(signUpLoadingStatus: LoadingStatus.success);
       case FailureUseCaseResult<void>():
         state = state.copyWith(
-            signUpLoadingStatus: LoadingStatus.error,
-            signUpErrorMessage: resp.message);
+          signUpLoadingStatus: LoadingStatus.error,
+        );
     }
   }
 }
