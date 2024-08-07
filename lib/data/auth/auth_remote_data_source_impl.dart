@@ -11,6 +11,16 @@ import 'auth_remote_data_source.dart';
 
 part 'generated/auth_remote_data_source_impl.g.dart';
 
+/*
+설명
+- RemoteDataSource : Rest api와의 연동을 통한 CRUD 작업 책임을 가짐
+- LocalDataSource : Local DB와의 연동을 통한 CRUD 작업 책임을 가짐
+
+사용법
+- Retrofit을 이용하여 http request 하는 코드를 자동으로 제네리이션
+- Provider를 통해 의존성 관리
+ */
+
 final authRemoteDataSourceProvider = Provider<AuthRemoteDataSource>((ref) {
   return AuthRemoteDataSourceImpl(ref.watch(httpClientProvider));
 });

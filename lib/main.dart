@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_best_practice/manager/app/app_manager_impl.dart';
 import 'package:flutter_best_practice/manager/router/app_router.dart';
 import 'package:flutter_best_practice/ui/auth/sign_in/sign_in_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

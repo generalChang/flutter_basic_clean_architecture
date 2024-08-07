@@ -1,6 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
+/*
+설명
+- Repository impl에서 에러메세지를 쉽게 핸들링하게끔 도와주는 클래스
+
+사용법
+- Repository impl에서 상속해서 사용
+ */
+
 abstract class Repository {
   const Repository();
 
