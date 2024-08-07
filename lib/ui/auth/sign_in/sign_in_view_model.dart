@@ -10,6 +10,20 @@ import '../../../domain/auth/model/sign_in_model.dart';
 import '../../../domain/auth/params/sign_in_params.dart';
 import '../../../manager/app/app_manager.dart';
 
+/*
+설명
+- MVVM 패턴에서 ViewModel에 해당하는 부분
+- 따라서 이벤트 처리 및 State management 책임을 가짐
+- 하나의 뷰와 동일한 생명주기를 가지도록 설정
+
+
+사용법
+- Riverpod의 StateNotifier를 extends 해야함
+   - view에서 viewmodel을 쉽게 구독하고 모니터링 할 수 있도록 하기 위함
+- StateNotifierProvider를 통해 의존성 관리
+   - 일반적으로 autoDispose modifier를 사용하여 뷰와 완전히 동일한 생명주기를 갖도록 설정하는 것을 권장
+ */
+
 final signInViewModelProvider =
     StateNotifierProvider.autoDispose<SignInViewModel, SignInState>((ref) {
   return SignInViewModel(

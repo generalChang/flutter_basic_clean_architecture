@@ -14,6 +14,16 @@ import '../../domain/auth/params/sign_up_params.dart';
 import 'body/sign_in_request_body.dart';
 import 'mapper/auth_mapper.dart';
 
+/*
+설명
+- usecase의 요구사항에 따라 데이터를 입출력 하는 책임
+- repository interface 명세는 usecase가 통제함
+
+사용법
+- 에러 핸들링을 간편히 하기 위한 Repository class를 상속받고, domain에 있는 repository interface를 구현함
+- Provider를 통해 의존성 관리
+ */
+
 final authRepositoryProvider = Provider((ref) {
   return AuthRepositoryImpl(
       authRemoteDataSource: ref.watch(authRemoteDataSourceProvider));
