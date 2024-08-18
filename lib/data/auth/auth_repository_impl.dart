@@ -1,11 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_best_practice/data/auth/auth_remote_data_source.dart';
-import 'package:flutter_best_practice/data/auth/auth_remote_data_source_impl.dart';
 import 'package:flutter_best_practice/data/auth/body/sign_up_request_body.dart';
 import 'package:flutter_best_practice/data/auth/entity/sign_in_entity.dart';
 import 'package:flutter_best_practice/domain/auth/auth_repository.dart';
 import 'package:flutter_best_practice/domain/auth/model/sign_in_model.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/helper/repository/repository.dart';
 import '../../core/helper/repository/repository_result.dart';
@@ -23,11 +21,6 @@ import 'mapper/auth_mapper.dart';
 - 에러 핸들링을 간편히 하기 위한 Repository class를 상속받고, domain에 있는 repository interface를 구현함
 - Provider를 통해 의존성 관리
  */
-
-final authRepositoryProvider = Provider((ref) {
-  return AuthRepositoryImpl(
-      authRemoteDataSource: ref.watch(authRemoteDataSourceProvider));
-});
 
 class AuthRepositoryImpl extends Repository implements AuthRepository {
   final AuthRemoteDataSource _authRemoteDataSource;

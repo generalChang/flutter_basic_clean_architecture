@@ -1,4 +1,3 @@
-import 'package:flutter_best_practice/data/auth/auth_repository_impl.dart';
 import 'package:flutter_best_practice/domain/auth/auth_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -38,7 +37,8 @@ class SignUpUseCase implements UseCase<void, SignUpParams> {
     final resp = await _authRepository.signUp(params: params);
 
     return switch (resp) {
-      SuccessRepositoryResult<void>() => SuccessUseCaseResult<void>(data: null),
+      SuccessRepositoryResult<void>() =>
+        const SuccessUseCaseResult<void>(data: null),
       FailureRepositoryResult<void>() =>
         FailureUseCaseResult<void>(message: resp.messages?[0])
     };

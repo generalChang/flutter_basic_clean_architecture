@@ -1,4 +1,3 @@
-import 'package:flutter_best_practice/data/auth/auth_repository_impl.dart';
 import 'package:flutter_best_practice/domain/auth/auth_repository.dart';
 import 'package:flutter_best_practice/domain/auth/model/sign_in_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,7 +22,7 @@ import '../params/sign_in_params.dart';
 
  */
 
-final signInUseCaseProvider = Provider((ref){
+final signInUseCaseProvider = Provider((ref) {
   return SignInUseCase(authRepository: ref.watch(authRepositoryProvider));
 });
 
