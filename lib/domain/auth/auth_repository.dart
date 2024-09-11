@@ -1,5 +1,6 @@
 import 'package:flutter_best_practice/domain/auth/params/sign_in_params.dart';
 import 'package:flutter_best_practice/domain/auth/params/sign_up_params.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/helper/repository/repository_result.dart';
 import 'model/sign_in_model.dart';
@@ -13,6 +14,10 @@ import 'model/sign_in_model.dart';
 사용법
 - usecase 요구사항에 맞춰 메서드를 정의하여 사용
  */
+final authRepositoryProvider = Provider<AuthRepository>((ref) {
+  throw Exception(
+      'You should provide your own implementation of [AuthRepository].');
+});
 
 abstract interface class AuthRepository {
   Future<RepositoryResult<SignInModel>> signIn({required SignInParams params});

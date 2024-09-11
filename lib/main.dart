@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_best_practice/manager/app/app_manager_impl.dart';
+import 'package:flutter_best_practice/data/auth/auth_remote_data_source_impl.dart';
+import 'package:flutter_best_practice/data/auth/auth_repository_impl.dart';
+import 'package:flutter_best_practice/domain/auth/auth_repository.dart';
 import 'package:flutter_best_practice/manager/router/app_router.dart';
-import 'package:flutter_best_practice/ui/auth/sign_in/sign_in_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    ProviderScope(
+      overrides: [
+        authRepositoryProvider.overrideWith((ref) => AuthRepositoryImpl(
+            authRemoteDataSource: ref.watch(authRemoteDataSourceProvider))),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends ConsumerStatefulWidget {
