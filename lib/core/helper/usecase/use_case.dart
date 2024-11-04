@@ -1,4 +1,6 @@
-import 'use_case_result.dart';
+import 'package:flutter_best_practice/core/helper/result/result.dart';
+
+import '../error_handling/custom_exception.dart';
 
 /*
 설명
@@ -11,5 +13,5 @@ import 'use_case_result.dart';
 
 // ignore: one_member_abstracts
 abstract class UseCase<T, P> {
-  Future<UseCaseResult<T>> call({required P params});
+  Future<Result<T, CustomException>> call({required P params});
 }

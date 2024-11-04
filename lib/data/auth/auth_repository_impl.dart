@@ -1,4 +1,5 @@
-import 'package:dio/dio.dart';
+import 'package:flutter_best_practice/core/helper/api_call/api_call.dart';
+import 'package:flutter_best_practice/core/helper/result/result.dart';
 import 'package:flutter_best_practice/data/auth/auth_remote_data_source.dart';
 import 'package:flutter_best_practice/data/auth/auth_remote_data_source_impl.dart';
 import 'package:flutter_best_practice/data/auth/body/sign_up_request_body.dart';
@@ -7,8 +8,7 @@ import 'package:flutter_best_practice/domain/auth/auth_repository.dart';
 import 'package:flutter_best_practice/domain/auth/model/sign_in_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/helper/repository/repository.dart';
-import '../../core/helper/repository/repository_result.dart';
+import '../../core/helper/error_handling/custom_exception.dart';
 import '../../domain/auth/params/sign_in_params.dart';
 import '../../domain/auth/params/sign_up_params.dart';
 import 'body/sign_in_request_body.dart';
@@ -29,7 +29,7 @@ final authRepositoryProvider = Provider((ref) {
       authRemoteDataSource: ref.watch(authRemoteDataSourceProvider));
 });
 
-class AuthRepositoryImpl extends Repository implements AuthRepository {
+class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource _authRemoteDataSource;
 
   const AuthRepositoryImpl({
@@ -37,35 +37,28 @@ class AuthRepositoryImpl extends Repository implements AuthRepository {
   }) : _authRemoteDataSource = authRemoteDataSource;
 
   @override
-  Future<RepositoryResult<SignInModel>> signIn(
+  Future<Result<SignInModel, CustomException>> signIn(
       {required SignInParams params}) async {
-    try {
-      final SignInEntity resp = await _authRemoteDataSource.signIn(
+    final result = await apiCall(task: () async {
+      final SignInEntity result = await _authRemoteDataSource.signIn(
         body: SignInRequestBody(email: params.email, password: params.password),
       );
-      return SuccessRepositoryResult<SignInModel>(
-          data: AuthMapper.toSignInModel(entity: resp));
-    } on DioException catch (e) {
-      return FailureRepositoryResult<SignInModel>(
-        error: e,
-        messages: getErrorMessages(e),
-      );
-    }
+      return AuthMapper.toSignInModel(entity: result);
+    });
+
+    return result;
   }
 
   @override
-  Future<RepositoryResult<void>> signUp({required SignUpParams params}) async {
-    try {
-      await _authRemoteDataSource.signUp(
+  Future<Result<void, CustomException>> signUp(
+      {required SignUpParams params}) async {
+    return await apiCall(task: () async {
+      final result = await _authRemoteDataSource.signUp(
           body: SignUpRequestBody(
               email: params.email,
               password: params.password,
               name: params.name));
-
-      return const SuccessRepositoryResult<void>(data: null);
-    } on DioException catch (e) {
-      return FailureRepositoryResult<void>(
-          error: e, messages: getErrorMessages(e));
-    }
+      return result;
+    });
   }
 }

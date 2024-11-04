@@ -27,10 +27,8 @@ final signUpViewModelProvider =
 });
 
 class SignUpViewModel extends StateNotifier<SignUpState> {
-  final UseCase<void, SignUpParams> _signUpUseCase;
   SignUpViewModel({required UseCase<void, SignUpParams> signUpUseCase})
-      : _signUpUseCase = signUpUseCase,
-        super(SignUpState.init());
+      : super(SignUpState.init());
 
   void updateEmail({required String email}) {
     state = state.copyWith(email: email);
@@ -52,17 +50,13 @@ class SignUpViewModel extends StateNotifier<SignUpState> {
     //         email: state.email!, password: state.password!, name: state.name!));
 
     // 네트워크 레이턴시가 2초정도라 가정
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     // 서버 요청 후 성공적으로 응답을 받아왔다고 가정
     const resp = SuccessUseCaseResult<void>(data: null);
 
     switch (resp) {
       case SuccessUseCaseResult<void>():
         state = state.copyWith(signUpLoadingStatus: LoadingStatus.success);
-      case FailureUseCaseResult<void>():
-        state = state.copyWith(
-          signUpLoadingStatus: LoadingStatus.error,
-        );
-    }
+      }
   }
 }
