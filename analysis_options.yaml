@@ -9,6 +9,17 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  plugins:
+    - custom_lint
+  errors:
+    invalid_use_of_protected_member: error
+  exclude:
+    - "**.g.dart"
+    - "**.freezed.dart"
+    - "**_licenses.dart"
+    - "**.gen.dart"
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`

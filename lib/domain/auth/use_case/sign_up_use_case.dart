@@ -1,10 +1,10 @@
+import 'package:flutter_best_practice/core/helper/result/result.dart';
 import 'package:flutter_best_practice/data/auth/auth_repository_impl.dart';
 import 'package:flutter_best_practice/domain/auth/auth_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../core/helper/repository/repository_result.dart';
+import '../../../core/helper/error_handling/custom_exception.dart';
 import '../../../core/helper/usecase/use_case.dart';
-import '../../../core/helper/usecase/use_case_result.dart';
 import '../params/sign_up_params.dart';
 
 /*
@@ -34,13 +34,8 @@ class SignUpUseCase implements UseCase<void, SignUpParams> {
   }) : _authRepository = authRepository;
 
   @override
-  Future<UseCaseResult<void>> call({required SignUpParams params}) async {
-    final resp = await _authRepository.signUp(params: params);
-
-    return switch (resp) {
-      SuccessRepositoryResult<void>() => SuccessUseCaseResult<void>(data: null),
-      FailureRepositoryResult<void>() =>
-        FailureUseCaseResult<void>(message: resp.messages?[0])
-    };
+  Future<Result<void, CustomException>> call(
+      {required SignUpParams params}) async {
+    return await _authRepository.signUp(params: params);
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter_best_practice/core/helper/error_handling/custom_exception.dart';
 import 'package:flutter_best_practice/core/status/loading_status.dart';
 import 'package:flutter_best_practice/domain/auth/use_case/sign_in_use_case.dart';
 import 'package:flutter_best_practice/manager/app/app_manager_impl.dart';
@@ -5,8 +6,8 @@ import 'package:flutter_best_practice/manager/app/interface/app_sign_in_able.dar
 import 'package:flutter_best_practice/ui/auth/sign_in/sign_in_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/helper/result/result.dart';
 import '../../../core/helper/usecase/use_case.dart';
-import '../../../core/helper/usecase/use_case_result.dart';
 import '../../../domain/auth/model/sign_in_model.dart';
 import '../../../domain/auth/params/sign_in_params.dart';
 
@@ -32,14 +33,12 @@ final signInViewModelProvider =
 });
 
 class SignInViewModel extends StateNotifier<SignInState> {
-  final UseCase<SignInModel, SignInParams> _signInUseCase;
   final AppSignInAble _appManager;
 
   SignInViewModel(
       {required UseCase<SignInModel, SignInParams> signInUseCase,
       required AppSignInAble appManager})
       : _appManager = appManager,
-        _signInUseCase = signInUseCase,
         super(SignInState.init());
 
   void updateEmail({required String email}) {
@@ -60,18 +59,14 @@ class SignInViewModel extends StateNotifier<SignInState> {
     await Future.delayed(const Duration(seconds: 2));
 
     // 성공하여서 다음과 같은 반환값을 받았다고 가정
-    const resp = SuccessUseCaseResult<SignInModel>(
+    const resp = Success<SignInModel, CustomException>(
         data: SignInModel(
             accessToken: 'accessToken', refreshToken: 'refreshToken'));
 
     switch (resp) {
-      case SuccessUseCaseResult<SignInModel>():
+      case Success<SignInModel, CustomException>():
         await _appManager.signIn(isSignIn: true);
         state = state.copyWith(signInLoadingStatus: LoadingStatus.success);
-      case FailureUseCaseResult<SignInModel>():
-        state = state.copyWith(
-          signInLoadingStatus: LoadingStatus.error,
-        );
     }
   }
 }
