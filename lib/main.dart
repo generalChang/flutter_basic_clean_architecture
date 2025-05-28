@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_best_practice/manager/router/app_router.dart';
+import 'package:flutter_best_practice/ui/router/app_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class _MyAppState extends ConsumerState<MyApp> {
     final routerConfig = ref.watch(appRouterProvider).router;
     return MaterialApp.router(
       routerConfig: routerConfig,
-      title: 'Flutter Demo',
+      title: 'Flutter Basic Clean Architecture',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(
