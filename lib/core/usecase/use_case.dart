@@ -1,4 +1,3 @@
-import '../error_handling/custom_exception.dart';
 import '../error_handling/result.dart';
 
 // ignore: one_member_abstracts

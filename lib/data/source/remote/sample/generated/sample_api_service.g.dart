@@ -102,24 +102,3 @@ class _SampleApiService implements SampleApiService {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
-
-// **************************************************************************
-// RiverpodGenerator
-// **************************************************************************
-
-String _$sampleApiHash() => r'c5467f7f2e018c552a98fbdc818aab6e641f8531';
-
-/// See also [sampleApi].
-@ProviderFor(sampleApi)
-final sampleApiProvider = Provider<SampleApiService>.internal(
-  sampleApi,
-  name: r'sampleApiProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$sampleApiHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef SampleApiRef = ProviderRef<SampleApiService>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

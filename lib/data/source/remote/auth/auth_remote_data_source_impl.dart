@@ -3,15 +3,7 @@ import 'package:flutter_best_practice/data/request_body/auth/sign_in_request_bod
 import 'package:flutter_best_practice/data/request_body/auth/sign_up_request_body.dart';
 import 'package:flutter_best_practice/data/source/remote/auth/auth_api_service.dart';
 import 'package:flutter_best_practice/data/source/remote/auth/auth_remote_data_source.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'generated/auth_remote_data_source_impl.g.dart';
-
-@Riverpod(keepAlive: true)
-AuthRemoteDataSource authRemoteDataSource(Ref ref) {
-  return AuthRemoteDataSourceImpl(authApiService: ref.read(authApiProvider));
-}
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final AuthApiService _authApiService;

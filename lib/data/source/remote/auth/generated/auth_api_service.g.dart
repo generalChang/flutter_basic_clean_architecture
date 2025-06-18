@@ -101,24 +101,3 @@ class _AuthApiService implements AuthApiService {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
-
-// **************************************************************************
-// RiverpodGenerator
-// **************************************************************************
-
-String _$authApiHash() => r'ebfabac1ab9ae1c13ac0860a4a1ae90434be7fd6';
-
-/// See also [authApi].
-@ProviderFor(authApi)
-final authApiProvider = Provider<AuthApiService>.internal(
-  authApi,
-  name: r'authApiProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$authApiHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef AuthApiRef = ProviderRef<AuthApiService>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

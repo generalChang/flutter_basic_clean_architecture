@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_best_practice/ui/router/redirect_notifier.dart';
-import 'package:flutter_best_practice/ui/router/routes.dart';
+import 'package:flutter_best_practice/app/router/redirect_notifier.dart';
+import 'package:flutter_best_practice/app/router/routes.dart';
 
 import 'package:flutter_best_practice/ui/view/auth/sign_in/sign_in_view.dart';
 import 'package:flutter_best_practice/ui/view/auth/sign_up/sign_up_view.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../core/route/app_router_interceptor.dart';
-import '../view/home/home_view.dart';
+import '../../ui/view/home/home_view.dart';
 import 'auth_route_interceptor.dart';
 
 part 'generated/app_router.g.dart';

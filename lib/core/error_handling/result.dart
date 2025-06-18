@@ -1,5 +1,3 @@
-import 'package:flutter_best_practice/core/error_handling/custom_exception.dart';
-
 /// Result 패턴
 sealed class Result<T, E extends Exception> {
   const Result();

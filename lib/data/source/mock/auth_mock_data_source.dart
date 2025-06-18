@@ -1,17 +1,7 @@
 import 'package:flutter_best_practice/data/entity/auth/sign_in_entity.dart';
 import 'package:flutter_best_practice/data/request_body/auth/sign_in_request_body.dart';
 import 'package:flutter_best_practice/data/request_body/auth/sign_up_request_body.dart';
-import 'package:flutter_best_practice/data/source/remote/auth/auth_api_service.dart';
 import 'package:flutter_best_practice/data/source/remote/auth/auth_remote_data_source.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'generated/auth_mock_data_source.g.dart';
-
-@riverpod
-AuthMockDataSource authMockDataSource(Ref ref) {
-  return AuthMockDataSource();
-}
 
 class AuthMockDataSource implements AuthRemoteDataSource {
   @override
