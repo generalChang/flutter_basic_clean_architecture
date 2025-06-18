@@ -5,26 +5,28 @@ import 'package:flutter_best_practice/data/source/remote/sample/sample_remote_da
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'generated/sample_mock_data_source.g.dart';
+part 'generated/sample_remote_data_source_impl.g.dart';
 
-@riverpod
-SampleMockDataSource sampleMockDataSource(Ref ref) {
-  return SampleMockDataSource();
+@Riverpod(keepAlive: true)
+SampleRemoteDataSource sampleRemoteDataSource(Ref ref) {
+  return SampleRemoteDataSourceImpl(
+      sampleApiService: ref.read(sampleApiProvider));
 }
 
-class SampleMockDataSource implements SampleRemoteDataSource {
+class SampleRemoteDataSourceImpl implements SampleRemoteDataSource {
+  final SampleApiService _sampleApiService;
+
+  const SampleRemoteDataSourceImpl({
+    required SampleApiService sampleApiService,
+  }) : _sampleApiService = sampleApiService;
+
   @override
   Future<void> addSample({required AddSampleRequestBody body}) async {
-    await Future.delayed(const Duration(seconds: 1));
+    return await _sampleApiService.addSample(body: body);
   }
 
   @override
   Future<List<SampleEntity>> getSamples() async {
-    await Future.delayed(const Duration(seconds: 1));
-
-    return [
-      const SampleEntity(id: '1', title: 'title1', content: 'content1'),
-      const SampleEntity(id: '2', title: 'title2', content: 'content2'),
-    ];
+    return await _sampleApiService.getSamples();
   }
 }

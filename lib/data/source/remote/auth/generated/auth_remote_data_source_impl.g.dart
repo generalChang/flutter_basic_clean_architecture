@@ -1,25 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../sample_repository_impl.dart';
+part of '../auth_remote_data_source_impl.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$sampleRepositoryHash() => r'60dbd15d711c12f146c47c3bd57004d42fa78403';
+String _$authRemoteDataSourceHash() =>
+    r'0e8adfeb6cd19106b541334474e0df2f8052cde0';
 
-/// See also [sampleRepository].
-@ProviderFor(sampleRepository)
-final sampleRepositoryProvider = Provider<SampleRepository>.internal(
-  sampleRepository,
-  name: r'sampleRepositoryProvider',
+/// See also [authRemoteDataSource].
+@ProviderFor(authRemoteDataSource)
+final authRemoteDataSourceProvider = Provider<AuthRemoteDataSource>.internal(
+  authRemoteDataSource,
+  name: r'authRemoteDataSourceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$sampleRepositoryHash,
+      : _$authRemoteDataSourceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef SampleRepositoryRef = ProviderRef<SampleRepository>;
+typedef AuthRemoteDataSourceRef = ProviderRef<AuthRemoteDataSource>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

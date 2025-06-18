@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../auth_remote_data_source.dart';
+part of '../auth_api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of '../auth_remote_data_source.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _AuthRemoteDataSource implements AuthRemoteDataSource {
-  _AuthRemoteDataSource(
+class _AuthApiService implements AuthApiService {
+  _AuthApiService(
     this._dio, {
     this.baseUrl,
   });
@@ -106,11 +106,11 @@ class _AuthRemoteDataSource implements AuthRemoteDataSource {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authApiHash() => r'442f765558837824697d05bf98355ba907a76dd0';
+String _$authApiHash() => r'ebfabac1ab9ae1c13ac0860a4a1ae90434be7fd6';
 
 /// See also [authApi].
 @ProviderFor(authApi)
-final authApiProvider = Provider<AuthRemoteDataSource>.internal(
+final authApiProvider = Provider<AuthApiService>.internal(
   authApi,
   name: r'authApiProvider',
   debugGetCreateSourceHash:
@@ -119,6 +119,6 @@ final authApiProvider = Provider<AuthRemoteDataSource>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef AuthApiRef = ProviderRef<AuthRemoteDataSource>;
+typedef AuthApiRef = ProviderRef<AuthApiService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

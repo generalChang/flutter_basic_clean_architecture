@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../sample_remote_data_source.dart';
+part of '../sample_api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of '../sample_remote_data_source.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _SampleRemoteDataSource implements SampleRemoteDataSource {
-  _SampleRemoteDataSource(
+class _SampleApiService implements SampleApiService {
+  _SampleApiService(
     this._dio, {
     this.baseUrl,
   });
@@ -107,11 +107,11 @@ class _SampleRemoteDataSource implements SampleRemoteDataSource {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$sampleApiHash() => r'd0d51a7c75f52339360a03c92b43a04f2a77f573';
+String _$sampleApiHash() => r'c5467f7f2e018c552a98fbdc818aab6e641f8531';
 
 /// See also [sampleApi].
 @ProviderFor(sampleApi)
-final sampleApiProvider = Provider<SampleRemoteDataSource>.internal(
+final sampleApiProvider = Provider<SampleApiService>.internal(
   sampleApi,
   name: r'sampleApiProvider',
   debugGetCreateSourceHash:
@@ -120,6 +120,6 @@ final sampleApiProvider = Provider<SampleRemoteDataSource>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef SampleApiRef = ProviderRef<SampleRemoteDataSource>;
+typedef SampleApiRef = ProviderRef<SampleApiService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -7,16 +7,17 @@ import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'generated/auth_remote_data_source.g.dart';
+part 'generated/auth_api_service.g.dart';
+
 
 @Riverpod(keepAlive: true)
-AuthRemoteDataSource authApi(AuthApiRef ref) {
-  return AuthRemoteDataSource(ref.read(httpClientProvider));
+AuthApiService authApi(AuthApiRef ref) {
+  return AuthApiService(ref.read(httpClientProvider));
 }
 
 @RestApi()
-abstract class AuthRemoteDataSource {
-  factory AuthRemoteDataSource(Dio dio) = _AuthRemoteDataSource;
+abstract class AuthApiService {
+  factory AuthApiService(Dio dio) = _AuthApiService;
 
   /// 로그인
   @POST('/auth/signIn')
