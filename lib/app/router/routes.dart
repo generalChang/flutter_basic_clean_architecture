@@ -13,4 +13,8 @@ class Routes {
 
   /// 홈
   static const RouteInfo home = RouteInfo(name: '/home', path: '/home');
+
+  /// 태스크
+  static final RouteInfo task =
+      RouteInfo(name: '${home.name}/task', path: 'task');
 }

@@ -20,6 +20,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required AuthRemoteDataSource remoteDataSource,
   }) : _remoteDataSource = remoteDataSource;
 
+  /// 로그인
   @override
   Future<Result<SignInModel, CustomException>> signIn(
       {required SignInParams params}) async {
@@ -31,6 +32,7 @@ class AuthRepositoryImpl implements AuthRepository {
     });
   }
 
+  /// 회원가입
   @override
   Future<Result<void, CustomException>> signUp(
       {required SignUpParams params}) async {

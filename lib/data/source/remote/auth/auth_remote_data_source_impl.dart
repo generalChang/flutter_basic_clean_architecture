@@ -4,7 +4,6 @@ import 'package:flutter_best_practice/data/request_body/auth/sign_up_request_bod
 import 'package:flutter_best_practice/data/source/remote/auth/auth_api_service.dart';
 import 'package:flutter_best_practice/data/source/remote/auth/auth_remote_data_source.dart';
 
-
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final AuthApiService _authApiService;
 

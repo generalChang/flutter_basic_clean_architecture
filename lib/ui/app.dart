@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'app/router/app_router.dart';
-
-void main() {
-  runApp(const ProviderScope(child: MyApp()));
-}
+import '../app/router/app_router.dart';
 
 class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});

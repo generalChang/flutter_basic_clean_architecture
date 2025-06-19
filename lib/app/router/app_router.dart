@@ -4,6 +4,7 @@ import 'package:flutter_best_practice/app/router/routes.dart';
 
 import 'package:flutter_best_practice/ui/view/auth/sign_in/sign_in_view.dart';
 import 'package:flutter_best_practice/ui/view/auth/sign_up/sign_up_view.dart';
+import 'package:flutter_best_practice/ui/view/task/task_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -72,7 +73,16 @@ class AppRouter {
       GoRoute(
           path: Routes.home.path,
           name: Routes.home.name,
-          builder: (context, state) => const HomeView())
+          builder: (context, state) => const HomeView(),
+          routes: [
+            /// 태스크
+            GoRoute(
+                path: Routes.task.path,
+                name: Routes.task.name,
+                builder: (context, state) {
+                  return const TaskView();
+                })
+          ])
     ],
   );
 

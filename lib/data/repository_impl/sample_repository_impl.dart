@@ -17,6 +17,7 @@ class SampleRepositoryImpl implements SampleRepository {
     required SampleRemoteDataSource remoteDataSource,
   }) : _remoteDataSource = remoteDataSource;
 
+  /// 샘플 목록 조회
   @override
   Future<Result<List<SampleModel>, CustomException>> getSamples(
       {required NoParams params}) async {
@@ -26,6 +27,7 @@ class SampleRepositoryImpl implements SampleRepository {
     });
   }
 
+  /// 샘플 추가
   @override
   Future<Result<void, CustomException>> addSample(
       {required AddSampleParams params}) async {
