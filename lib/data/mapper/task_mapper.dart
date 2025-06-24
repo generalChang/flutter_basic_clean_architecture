@@ -5,5 +5,5 @@ import 'package:flutter_best_practice/domain/model/task/task_model.dart';
 
 extension TaskExt on Task {
   TaskModel toModel() =>
-      TaskModel(id: id, title: title, description: description, isDone: isDone);
+      TaskModel(title: title, description: description, isDone: isDone);
 }

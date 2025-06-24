@@ -27,7 +27,6 @@ class TaskRepositoryImpl implements TaskRepository {
     return await apiCall(task: () async {
       return await _localDataSource.addTask(
           task: Task(
-              id: params.id,
               title: params.title,
               description: params.description,
               isDone: params.isDone));
@@ -59,9 +58,9 @@ class TaskRepositoryImpl implements TaskRepository {
   Future<Result<void, CustomException>> updateTask(
       {required UpdateTaskParams params}) async {
     return await apiCall(task: () async {
-      return await _localDataSource.addTask(
-          task: Task(
-              id: params.id,
+      return await _localDataSource.updateTask(
+          id: params.id,
+          updatedTask: Task(
               title: params.title,
               description: params.description,
               isDone: params.isDone));

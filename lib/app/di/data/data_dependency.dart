@@ -3,7 +3,7 @@ import 'package:flutter_best_practice/data/repository_impl/auth_repository_impl.
 import 'package:flutter_best_practice/data/repository_impl/sample_repository_impl.dart';
 import 'package:flutter_best_practice/data/repository_impl/task_repository_impl.dart';
 import 'package:flutter_best_practice/data/source/local/task/task_local_data_source_impl.dart';
-import 'package:flutter_best_practice/data/source/local/task/task_local_db_service.dart';
+import 'package:flutter_best_practice/data/source/local/task/task_local_db_service_impl.dart';
 import 'package:flutter_best_practice/data/source/mock/auth_mock_data_source.dart';
 import 'package:flutter_best_practice/data/source/mock/sample_mock_data_source.dart';
 import 'package:flutter_best_practice/data/source/remote/auth/auth_api_service.dart';
@@ -54,7 +54,7 @@ final sampleRepositoryProvider = Provider((ref) {
 
 /// Task ///
 final taskLocalDbServiceProvider = Provider((ref) {
-  return TaskLocalDbService()..initDb();
+  return TaskLocalDbServiceImpl();
 });
 
 final taskLocalDataSourceProvider = Provider((ref) {

@@ -30,7 +30,8 @@ class TaskLocalDataSourceImpl implements TaskLocalDataSource {
   }
 
   @override
-  Future<void> updateTask(Task updatedTask) async {
-    return await localDbService.updateTask(updatedTask);
+  Future<void> updateTask(
+      {required String id, required Task updatedTask}) async {
+    return await localDbService.updateTask(id: id, updatedTask: updatedTask);
   }
 }

@@ -14,7 +14,11 @@ class Routes {
   /// 홈
   static const RouteInfo home = RouteInfo(name: '/home', path: '/home');
 
-  /// 태스크
+  /// 홈 > 태스크 조회
   static final RouteInfo task =
       RouteInfo(name: '${home.name}/task', path: 'task');
+
+  /// 홈 > 태스크 조회 > 태스크 추가
+  static final RouteInfo addTask =
+      RouteInfo(name: '${task.name}/add', path: 'add');
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_best_practice/app/local/app_local.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive_flutter/adapters.dart';
-import 'package:path_provider/path_provider.dart';
 
 import '../../ui/app.dart';
 
@@ -11,9 +10,7 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  /// Hive (Local DB) 초기화
-  final appDocumentDir = await getApplicationDocumentsDirectory();
-  await Hive.initFlutter(appDocumentDir.path);
+  AppLocal.initHive();
 
   runApp(const ProviderScope(child: MyApp()));
 }

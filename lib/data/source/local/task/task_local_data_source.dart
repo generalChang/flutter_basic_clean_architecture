@@ -11,7 +11,7 @@ abstract interface class TaskLocalDataSource {
   Future<Task?> getTask({required String id});
 
   /// 태스크 수정
-  Future<void> updateTask(Task updatedTask);
+  Future<void> updateTask({required String id, required Task updatedTask});
 
   /// 태스크 삭제
   Future<void> deleteTask({required String id});
