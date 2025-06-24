@@ -6,6 +6,7 @@ import 'package:flutter_best_practice/core/status/status.dart';
 
 part 'generated/sample_state.freezed.dart';
 
+/// sample view의 상태를 관리하기 위한 state class
 @freezed
 class SampleState with _$SampleState {
   factory SampleState(

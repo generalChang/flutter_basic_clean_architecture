@@ -3,6 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'generated/sample_entity.g.dart';
 
+/// sample api response data model
+
 @JsonSerializable()
 class SampleEntity{
   final String id;

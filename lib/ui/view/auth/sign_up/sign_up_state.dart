@@ -6,6 +6,7 @@ import 'package:flutter_best_practice/core/status/status.dart';
 
 part 'generated/sign_up_state.freezed.dart';
 
+/// Sign up view의 상태를 관리하기 위한 state class
 @freezed
 class SignUpState with _$SignUpState {
   factory SignUpState({

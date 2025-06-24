@@ -4,7 +4,7 @@ import 'package:flutter_best_practice/ui/view/auth/sign_in/sign_in_controller.da
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../router/routes.dart';
+import '../../../../app/router/routes.dart';
 
 class SignInView extends ConsumerWidget {
   const SignInView({super.key});
