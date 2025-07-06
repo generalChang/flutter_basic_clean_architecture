@@ -1,11 +1,21 @@
-import '../../../entity/auth/sign_in_entity.dart';
-import '../../../request_body/auth/sign_in_request_body.dart';
-import '../../../request_body/auth/sign_up_request_body.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_best_practice/data/request_body/auth/sign_in_request_body.dart';
+import 'package:flutter_best_practice/data/request_body/auth/sign_up_request_body.dart';
+import 'package:flutter_best_practice/data/entity/auth/sign_in_entity.dart';
+import 'package:retrofit/http.dart';
+import 'package:retrofit/retrofit.dart';
 
-abstract interface class AuthRemoteDataSource {
+part 'generated/auth_remote_data_source.g.dart';
+
+@RestApi()
+abstract class AuthRemoteDataSource {
+  factory AuthRemoteDataSource(Dio dio) = _AuthRemoteDataSource;
+
   /// 로그인
-  Future<SignInEntity> signIn({required SignInRequestBody body});
+  @POST('/auth/signIn')
+  Future<SignInEntity> signIn({@Body() required SignInRequestBody body});
 
   /// 회원가입
-  Future<void> signUp({required SignUpRequestBody body});
+  @POST('/auth/signUp')
+  Future<void> signUp({@Body() required SignUpRequestBody body});
 }

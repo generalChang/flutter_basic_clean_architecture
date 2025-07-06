@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_best_practice/app/local/app_local.dart';
+import 'package:flutter_best_practice/data/source/local/_core/hive_initializer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../ui/app.dart';
@@ -10,7 +10,7 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  AppLocal.initHive();
+  HiveInitializer.initHive();
 
   runApp(const ProviderScope(child: MyApp()));
 }
