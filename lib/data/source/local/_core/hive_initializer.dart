@@ -3,8 +3,8 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart';
 
 /// 앱의 로컬 DB 연결 및 초기화 관리
-abstract final class AppLocal {
-  AppLocal._();
+abstract final class HiveInitializer {
+  HiveInitializer._();
 
   /// Hive box name
   static const String taskBoxName = 'task_box';

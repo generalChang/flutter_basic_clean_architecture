@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../sample_api_service.dart';
+part of '../auth_remote_data_source.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of '../sample_api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _SampleApiService implements SampleApiService {
-  _SampleApiService(
+class _AuthRemoteDataSource implements AuthRemoteDataSource {
+  _AuthRemoteDataSource(
     this._dio, {
     this.baseUrl,
   });
@@ -19,20 +19,21 @@ class _SampleApiService implements SampleApiService {
   String? baseUrl;
 
   @override
-  Future<List<SampleEntity>> getSamples() async {
+  Future<SignInEntity> signIn({required SignInRequestBody body}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(body.toJson());
     final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<SampleEntity>>(Options(
-      method: 'GET',
+        .fetch<Map<String, dynamic>>(_setStreamType<SignInEntity>(Options(
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/sample',
+              '/auth/signIn',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -41,14 +42,12 @@ class _SampleApiService implements SampleApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var _value = _result.data!
-        .map((dynamic i) => SampleEntity.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final _value = SignInEntity.fromJson(_result.data!);
     return _value;
   }
 
   @override
-  Future<void> addSample({required AddSampleRequestBody body}) async {
+  Future<void> signUp({required SignUpRequestBody body}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -61,7 +60,7 @@ class _SampleApiService implements SampleApiService {
     )
         .compose(
           _dio.options,
-          '/sample',
+          '/auth/signUp',
           queryParameters: queryParameters,
           data: _data,
         )

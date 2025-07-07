@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../auth_api_service.dart';
+part of '../sample_remote_data_source.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of '../auth_api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _AuthApiService implements AuthApiService {
-  _AuthApiService(
+class _SampleRemoteDataSource implements SampleRemoteDataSource {
+  _SampleRemoteDataSource(
     this._dio, {
     this.baseUrl,
   });
@@ -19,21 +19,20 @@ class _AuthApiService implements AuthApiService {
   String? baseUrl;
 
   @override
-  Future<SignInEntity> signIn({required SignInRequestBody body}) async {
+  Future<List<SampleEntity>> getSamples() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(body.toJson());
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<SignInEntity>(Options(
-      method: 'POST',
+        .fetch<List<dynamic>>(_setStreamType<List<SampleEntity>>(Options(
+      method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/auth/signIn',
+              '/sample',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -42,12 +41,14 @@ class _AuthApiService implements AuthApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final _value = SignInEntity.fromJson(_result.data!);
+    var _value = _result.data!
+        .map((dynamic i) => SampleEntity.fromJson(i as Map<String, dynamic>))
+        .toList();
     return _value;
   }
 
   @override
-  Future<void> signUp({required SignUpRequestBody body}) async {
+  Future<void> addSample({required AddSampleRequestBody body}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -60,7 +61,7 @@ class _AuthApiService implements AuthApiService {
     )
         .compose(
           _dio.options,
-          '/auth/signUp',
+          '/sample',
           queryParameters: queryParameters,
           data: _data,
         )
