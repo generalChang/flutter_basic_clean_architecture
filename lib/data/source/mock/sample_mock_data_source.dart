@@ -1,7 +1,17 @@
 import 'package:flutter_best_practice/data/entity/sample/sample_entity.dart';
 import 'package:flutter_best_practice/data/request_body/sample/add_sample_request_body.dart';
 import 'package:flutter_best_practice/data/source/remote/sample/sample_remote_data_source.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+part 'generated/sample_mock_data_source.g.dart';
+
+@Riverpod(
+  keepAlive: true
+)
+SampleMockDataSource sampleMockDataSource(Ref ref){
+  return SampleMockDataSource();
+}
 
 class SampleMockDataSource implements SampleRemoteDataSource {
   @override

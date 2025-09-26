@@ -1,7 +1,18 @@
 import 'package:flutter_best_practice/data/source/local/_core/hive_initializer.dart';
 import 'package:flutter_best_practice/data/entity/task/task.dart';
 import 'package:flutter_best_practice/data/source/local/task/task_local_data_source.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+
+part 'generated/task_local_data_source_impl.g.dart';
+
+@Riverpod(
+  keepAlive: true
+)
+TaskLocalDataSource taskLocalDataSource(Ref ref){
+  return TaskLocalDataSourceImpl();
+}
 
 class TaskLocalDataSourceImpl implements TaskLocalDataSource {
   //ignore: prefer_const_constructors

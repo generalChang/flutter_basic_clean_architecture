@@ -2,10 +2,10 @@ import 'package:flutter_best_practice/domain/param/auth/sign_in_params.dart';
 import 'package:flutter_best_practice/ui/controller/auth/auth_controller.dart';
 import 'package:flutter_best_practice/ui/view/auth//sign_in/sign_in_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../../app/di/domain/domain_dependency.dart';
 import '../../../../app/error/custom_exception.dart';
 import '../../../../app/foundation/status/status.dart';
 import '../../../../app/foundation/usecase/use_case.dart';
+import '../../../../domain/usecase/auth/sign_in_use_case.dart';
 part 'generated/sign_in_controller.g.dart';
 
 @riverpod

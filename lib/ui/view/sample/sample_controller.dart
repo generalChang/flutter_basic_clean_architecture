@@ -1,10 +1,10 @@
 import 'package:flutter_best_practice/ui/view/sample/sample_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../app/di/domain/domain_dependency.dart';
 import '../../../app/error/custom_exception.dart';
 import '../../../app/foundation/status/status.dart';
 import '../../../app/foundation/usecase/no_params.dart';
 import '../../../app/foundation/usecase/use_case.dart';
+import '../../../domain/usecase/sample/get_samples_use_case.dart';
 
 part 'generated/sample_controller.g.dart';
 

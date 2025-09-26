@@ -1,11 +1,21 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_best_practice/app/service/network/http_client.dart';
 import 'package:flutter_best_practice/data/request_body/auth/sign_in_request_body.dart';
 import 'package:flutter_best_practice/data/request_body/auth/sign_up_request_body.dart';
 import 'package:flutter_best_practice/data/entity/auth/sign_in_entity.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'generated/auth_remote_data_source.g.dart';
+
+@Riverpod(
+  keepAlive: true
+)
+AuthRemoteDataSource authRemoteDataSource(Ref ref){
+  return AuthRemoteDataSource(ref.read(appDioProvider));
+}
 
 @RestApi()
 abstract class AuthRemoteDataSource {

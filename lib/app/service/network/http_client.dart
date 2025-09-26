@@ -1,9 +1,18 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class CustomHttpClient {
+part 'generated/http_client.g.dart';
+
+@Riverpod(keepAlive: true)
+Dio appDio(Ref ref) {
+  return AppDio(baseUrl: '서버 url').dio;
+}
+
+class AppDio {
   final String baseUrl;
 
-  CustomHttpClient({
+  AppDio({
     required this.baseUrl,
   });
 

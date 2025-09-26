@@ -1,11 +1,10 @@
-import 'package:flutter_best_practice/app/di/domain/domain_dependency.dart';
 import 'package:flutter_best_practice/ui/view/task/task_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
 import '../../../app/error/custom_exception.dart';
 import '../../../app/foundation/status/status.dart';
 import '../../../app/foundation/usecase/no_params.dart';
 import '../../../app/foundation/usecase/use_case.dart';
+import '../../../domain/usecase/task/get_tasks_use_case.dart';
 
 part 'generated/task_controller.g.dart';
 

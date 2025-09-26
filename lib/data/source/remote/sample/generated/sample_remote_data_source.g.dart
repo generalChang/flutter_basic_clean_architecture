@@ -102,3 +102,27 @@ class _SampleRemoteDataSource implements SampleRemoteDataSource {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+String _$sampleRemoteDataSourceHash() =>
+    r'0ea3913d1067c284ee25cfd8a78594dd80ef3b2d';
+
+/// See also [sampleRemoteDataSource].
+@ProviderFor(sampleRemoteDataSource)
+final sampleRemoteDataSourceProvider =
+    Provider<SampleRemoteDataSource>.internal(
+  sampleRemoteDataSource,
+  name: r'sampleRemoteDataSourceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$sampleRemoteDataSourceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef SampleRemoteDataSourceRef = ProviderRef<SampleRemoteDataSource>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

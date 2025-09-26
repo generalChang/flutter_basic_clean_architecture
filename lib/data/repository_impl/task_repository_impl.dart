@@ -1,16 +1,28 @@
 import 'package:flutter_best_practice/data/entity/task/task.dart';
 import 'package:flutter_best_practice/data/mapper/task_mapper.dart';
 import 'package:flutter_best_practice/data/source/local/task/task_local_data_source.dart';
+import 'package:flutter_best_practice/data/source/local/task/task_local_data_source_impl.dart';
 import 'package:flutter_best_practice/domain/model/task/task_model.dart';
 import 'package:flutter_best_practice/domain/param/task/add_task_params.dart';
 import 'package:flutter_best_practice/domain/param/task/get_task_params.dart';
 import 'package:flutter_best_practice/domain/repository/task_repository.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../app/error/api_call.dart';
 import '../../app/error/custom_exception.dart';
 import '../../app/error/result.dart';
 import '../../app/foundation/usecase/no_params.dart';
 import '../../domain/param/task/delete_task_params.dart';
 import '../../domain/param/task/update_task_params.dart';
+
+part 'generated/task_repository_impl.g.dart';
+
+@Riverpod(
+  keepAlive: true
+)
+TaskRepository taskRepository(Ref ref){
+  return TaskRepositoryImpl(localDataSource: ref.read(taskLocalDataSourceProvider));
+}
 
 class TaskRepositoryImpl implements TaskRepository {
   final TaskLocalDataSource _localDataSource;

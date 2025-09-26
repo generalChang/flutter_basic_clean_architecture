@@ -1,5 +1,4 @@
-/// 에러 객체
-/// Http Error Response DTO 양식에 따름
+/// Http Error Response DTO
 class ErrorModel {
   final int statusCode;
   final int errorCode;
