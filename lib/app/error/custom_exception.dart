@@ -4,7 +4,7 @@ import 'error_model.dart';
 
 part 'generated/custom_exception.freezed.dart';
 
-/// 서버 에러를 명시적으로 다루기 위한 자료구조
+/// 커스텀 에러 타입 모음 (서버 통신, 로컬 DB 통신 에러 포함)
 @freezed
 class CustomException with _$CustomException implements Exception {
   const factory CustomException.unauthorized({required ErrorModel model}) =

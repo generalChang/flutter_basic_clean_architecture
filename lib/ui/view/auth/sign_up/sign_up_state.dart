@@ -1,9 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:flutter_best_practice/core/error_handling/custom_exception.dart';
-
-import 'package:flutter_best_practice/core/status/status.dart';
-
+import '../../../../app/error/custom_exception.dart';
+import '../../../../app/foundation/status/status.dart';
 part 'generated/sign_up_state.freezed.dart';
 
 /// Sign up view의 상태를 관리하기 위한 state class

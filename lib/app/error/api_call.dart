@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_best_practice/app/error/result.dart';
 
-import '../error_handling/custom_exception.dart';
-import '../error_handling/error_model.dart';
-import '../error_handling/result.dart';
+import 'custom_exception.dart';
+import 'error_model.dart';
 
 /// 과업을 실행시키고, 과업의 성공 혹은 실패 상태를 반환
 /// 과업 실패 시 내부적으로 에러핸들링에 따라 명확한 에러를 포함한 Failure를 반환

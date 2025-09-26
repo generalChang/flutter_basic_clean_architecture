@@ -1,4 +1,4 @@
-import '../error_handling/result.dart';
+import '../../error/result.dart';
 
 // ignore: one_member_abstracts
 /// T : 모델

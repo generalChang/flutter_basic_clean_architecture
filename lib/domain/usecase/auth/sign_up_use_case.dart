@@ -1,8 +1,7 @@
 import 'package:flutter_best_practice/domain/repository/auth_repository.dart';
-
-import '../../../core/error_handling/custom_exception.dart';
-import '../../../core/error_handling/result.dart';
-import '../../../core/usecase/use_case.dart';
+import '../../../app/error/custom_exception.dart';
+import '../../../app/error/result.dart';
+import '../../../app/foundation/usecase/use_case.dart';
 import '../../param/auth/sign_up_params.dart';
 
 class SignUpUseCase implements UseCase<void, SignUpParams> {

@@ -5,9 +5,9 @@ import 'package:flutter_best_practice/data/source/remote/auth/auth_remote_data_s
 import 'package:flutter_best_practice/domain/repository/auth_repository.dart';
 import 'package:flutter_best_practice/domain/model/auth/sign_in_model.dart';
 
-import '../../core/api_call/api_call.dart';
-import '../../core/error_handling/custom_exception.dart';
-import '../../core/error_handling/result.dart';
+import '../../app/error/api_call.dart';
+import '../../app/error/custom_exception.dart';
+import '../../app/error/result.dart';
 import '../../domain/param/auth/sign_in_params.dart';
 import '../../domain/param/auth/sign_up_params.dart';
 import '../request_body/auth/sign_in_request_body.dart';

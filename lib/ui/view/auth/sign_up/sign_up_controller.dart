@@ -1,11 +1,11 @@
-import 'package:flutter_best_practice/core/error_handling/custom_exception.dart';
-import 'package:flutter_best_practice/core/usecase/use_case.dart';
 import 'package:flutter_best_practice/domain/param/auth/sign_up_params.dart';
 import 'package:flutter_best_practice/ui/view/auth/sign_up/sign_up_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../app/di/domain/domain_dependency.dart';
-import '../../../../core/status/status.dart';
+import '../../../../app/error/custom_exception.dart';
+import '../../../../app/foundation/status/status.dart';
+import '../../../../app/foundation/usecase/use_case.dart';
 part 'generated/sign_up_controller.g.dart';
 
 @riverpod

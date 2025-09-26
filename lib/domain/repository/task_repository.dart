@@ -1,6 +1,6 @@
-import '../../core/error_handling/custom_exception.dart';
-import '../../core/error_handling/result.dart';
-import '../../core/usecase/no_params.dart';
+import '../../app/error/custom_exception.dart';
+import '../../app/error/result.dart';
+import '../../app/foundation/usecase/no_params.dart';
 import '../model/task/task_model.dart';
 import '../param/task/add_task_params.dart';
 import '../param/task/delete_task_params.dart';

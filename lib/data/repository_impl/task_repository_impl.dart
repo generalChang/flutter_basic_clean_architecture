@@ -1,6 +1,3 @@
-import 'package:flutter_best_practice/core/api_call/api_call.dart';
-import 'package:flutter_best_practice/core/error_handling/custom_exception.dart';
-import 'package:flutter_best_practice/core/error_handling/result.dart';
 import 'package:flutter_best_practice/data/entity/task/task.dart';
 import 'package:flutter_best_practice/data/mapper/task_mapper.dart';
 import 'package:flutter_best_practice/data/source/local/task/task_local_data_source.dart';
@@ -8,8 +5,10 @@ import 'package:flutter_best_practice/domain/model/task/task_model.dart';
 import 'package:flutter_best_practice/domain/param/task/add_task_params.dart';
 import 'package:flutter_best_practice/domain/param/task/get_task_params.dart';
 import 'package:flutter_best_practice/domain/repository/task_repository.dart';
-
-import '../../core/usecase/no_params.dart';
+import '../../app/error/api_call.dart';
+import '../../app/error/custom_exception.dart';
+import '../../app/error/result.dart';
+import '../../app/foundation/usecase/no_params.dart';
 import '../../domain/param/task/delete_task_params.dart';
 import '../../domain/param/task/update_task_params.dart';
 

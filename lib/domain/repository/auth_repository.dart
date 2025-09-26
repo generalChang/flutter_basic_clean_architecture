@@ -1,7 +1,7 @@
 import 'package:flutter_best_practice/domain/param/auth/sign_in_params.dart';
 import 'package:flutter_best_practice/domain/param/auth/sign_up_params.dart';
-import '../../core/error_handling/custom_exception.dart';
-import '../../core/error_handling/result.dart';
+import '../../app/error/custom_exception.dart';
+import '../../app/error/result.dart';
 import '../model/auth/sign_in_model.dart';
 
 abstract interface class AuthRepository {

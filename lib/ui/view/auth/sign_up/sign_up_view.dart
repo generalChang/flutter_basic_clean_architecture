@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_best_practice/core/status/status.dart';
 import 'package:flutter_best_practice/ui/view/auth/sign_up/sign_up_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../../app/foundation/status/status.dart';
 
 class SignUpView extends ConsumerWidget {
   const SignUpView({super.key});

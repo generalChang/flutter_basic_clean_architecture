@@ -1,7 +1,8 @@
-import 'package:flutter_best_practice/core/error_handling/result.dart';
-import 'package:flutter_best_practice/core/usecase/use_case.dart';
 import 'package:flutter_best_practice/domain/param/task/delete_task_params.dart';
 import 'package:flutter_best_practice/domain/repository/task_repository.dart';
+
+import '../../../app/error/result.dart';
+import '../../../app/foundation/usecase/use_case.dart';
 
 class DeleteTaskUseCase implements UseCase<void, DeleteTaskParams> {
   final TaskRepository _repository;
