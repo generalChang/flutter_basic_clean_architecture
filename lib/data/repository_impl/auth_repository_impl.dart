@@ -7,7 +7,7 @@ import 'package:flutter_best_practice/domain/model/auth/sign_in_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../app/error/api_call.dart';
+import '../../app/util/api_call.dart';
 import '../../app/error/custom_exception.dart';
 import '../../app/error/result.dart';
 import '../../domain/param/auth/sign_in_params.dart';
@@ -16,13 +16,11 @@ import '../request_body/auth/sign_in_request_body.dart';
 
 part 'generated/auth_repository_impl.g.dart';
 
-@Riverpod(
-  keepAlive: true
-)
-AuthRepository authRepository(Ref ref){
-  return AuthRepositoryImpl(remoteDataSource: ref.read(authRemoteDataSourceProvider));
+@Riverpod(keepAlive: true)
+AuthRepository authRepository(Ref ref) {
+  return AuthRepositoryImpl(
+      remoteDataSource: ref.read(authRemoteDataSourceProvider));
 }
-
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource _remoteDataSource;
@@ -35,7 +33,7 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Result<SignInModel, CustomException>> signIn(
       {required SignInParams params}) async {
-    return await apiCall(task: () async {
+    return await ActionCallGuard.runFuture(task: () async {
       final SignInEntity result = await _remoteDataSource.signIn(
         body: SignInRequestBody(email: params.email, password: params.password),
       );
@@ -47,7 +45,7 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Result<void, CustomException>> signUp(
       {required SignUpParams params}) async {
-    return await apiCall(task: () async {
+    return await ActionCallGuard.runFuture(task: () async {
       final result = await _remoteDataSource.signUp(
           body: SignUpRequestBody(
               email: params.email,

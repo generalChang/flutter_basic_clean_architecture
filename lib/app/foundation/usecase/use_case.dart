@@ -1,6 +1,6 @@
 import '../../error/result.dart';
 
-// ignore: one_member_abstracts
+/// Future Usecase interface
 /// T : 모델
 /// P : 파라미터
 abstract class UseCase<T, P> {

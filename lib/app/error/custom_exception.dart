@@ -4,40 +4,25 @@ import 'error_model.dart';
 
 part 'generated/custom_exception.freezed.dart';
 
-/// 커스텀 에러 타입 모음 (서버 통신, 로컬 DB 통신 에러 포함)
+/// 커스텀 에러 타입 모음 (서버, 로컬 DB, 웹소켓 통신 에러 포함)
 @freezed
 class CustomException with _$CustomException implements Exception {
-  const factory CustomException.unauthorized({required ErrorModel model}) =
+  const factory CustomException.unauthorized({ErrorModel? model}) =
       Unauthorized;
-  const factory CustomException.userNotFound({required ErrorModel model}) =
+  const factory CustomException.userNotFound({ErrorModel? model}) =
       UserNotFound;
-  const factory CustomException.tokenExpired({required ErrorModel model}) =
+  const factory CustomException.tokenExpired({ErrorModel? model}) =
       TokenExpired;
-  const factory CustomException.productNotFound({required ErrorModel model}) =
+  const factory CustomException.productNotFound({ErrorModel? model}) =
       ProductNotFound;
   const factory CustomException.missingRequiredValue(
-      {required ErrorModel model}) = MissingRequiredValue;
-  const factory CustomException.invalid({required ErrorModel model}) = Invalid;
+      {required ErrorModel? model}) = MissingRequiredValue;
+  const factory CustomException.invalid({ErrorModel? model}) = Invalid;
 
-// 임의로 정의한 에러 코드들
-  /// {
-  ///   "status": 600,
-  ///   "code": "ZZ000",
-  ///   "message": "서버로부터 응답이 없습니다.",
-  /// }
+  // 임의로 정의한 에러 코드들
   const factory CustomException.serverError() = ServerError;
-
-  /// {
-  ///   "status": 601,
-  ///   "code": "ZZ001",
-  ///   "message": "통신 에러입니다.",
-  /// }
   const factory CustomException.networkError() = NetworkError;
-
-  /// {
-  ///   "status": 602,
-  ///   "code": "ZZ002",
-  ///   "message": "알 수 없는 에러입니다.",
-  /// }
   const factory CustomException.unknownError() = UnknownError;
+  const factory CustomException.formatError() = FormatError;
+  const factory CustomException.timeoutError() = TimeoutException;
 }

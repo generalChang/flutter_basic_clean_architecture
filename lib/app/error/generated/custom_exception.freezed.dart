@@ -18,41 +18,47 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CustomException {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel model) unauthorized,
-    required TResult Function(ErrorModel model) userNotFound,
-    required TResult Function(ErrorModel model) tokenExpired,
-    required TResult Function(ErrorModel model) productNotFound,
-    required TResult Function(ErrorModel model) missingRequiredValue,
-    required TResult Function(ErrorModel model) invalid,
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ErrorModel model)? unauthorized,
-    TResult? Function(ErrorModel model)? userNotFound,
-    TResult? Function(ErrorModel model)? tokenExpired,
-    TResult? Function(ErrorModel model)? productNotFound,
-    TResult? Function(ErrorModel model)? missingRequiredValue,
-    TResult? Function(ErrorModel model)? invalid,
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
     TResult? Function()? serverError,
     TResult? Function()? networkError,
     TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel model)? unauthorized,
-    TResult Function(ErrorModel model)? userNotFound,
-    TResult Function(ErrorModel model)? tokenExpired,
-    TResult Function(ErrorModel model)? productNotFound,
-    TResult Function(ErrorModel model)? missingRequiredValue,
-    TResult Function(ErrorModel model)? invalid,
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +73,8 @@ mixin _$CustomException {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +88,8 @@ mixin _$CustomException {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +103,8 @@ mixin _$CustomException {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,7 +134,7 @@ abstract class _$$UnauthorizedImplCopyWith<$Res> {
           _$UnauthorizedImpl value, $Res Function(_$UnauthorizedImpl) then) =
       __$$UnauthorizedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorModel model});
+  $Res call({ErrorModel? model});
 }
 
 /// @nodoc
@@ -136,13 +148,13 @@ class __$$UnauthorizedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = null,
+    Object? model = freezed,
   }) {
     return _then(_$UnauthorizedImpl(
-      model: null == model
+      model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as ErrorModel,
+              as ErrorModel?,
     ));
   }
 }
@@ -150,10 +162,10 @@ class __$$UnauthorizedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UnauthorizedImpl implements Unauthorized {
-  const _$UnauthorizedImpl({required this.model});
+  const _$UnauthorizedImpl({this.model});
 
   @override
-  final ErrorModel model;
+  final ErrorModel? model;
 
   @override
   String toString() {
@@ -180,15 +192,17 @@ class _$UnauthorizedImpl implements Unauthorized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel model) unauthorized,
-    required TResult Function(ErrorModel model) userNotFound,
-    required TResult Function(ErrorModel model) tokenExpired,
-    required TResult Function(ErrorModel model) productNotFound,
-    required TResult Function(ErrorModel model) missingRequiredValue,
-    required TResult Function(ErrorModel model) invalid,
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
   }) {
     return unauthorized(model);
   }
@@ -196,15 +210,17 @@ class _$UnauthorizedImpl implements Unauthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ErrorModel model)? unauthorized,
-    TResult? Function(ErrorModel model)? userNotFound,
-    TResult? Function(ErrorModel model)? tokenExpired,
-    TResult? Function(ErrorModel model)? productNotFound,
-    TResult? Function(ErrorModel model)? missingRequiredValue,
-    TResult? Function(ErrorModel model)? invalid,
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
     TResult? Function()? serverError,
     TResult? Function()? networkError,
     TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
   }) {
     return unauthorized?.call(model);
   }
@@ -212,15 +228,17 @@ class _$UnauthorizedImpl implements Unauthorized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel model)? unauthorized,
-    TResult Function(ErrorModel model)? userNotFound,
-    TResult Function(ErrorModel model)? tokenExpired,
-    TResult Function(ErrorModel model)? productNotFound,
-    TResult Function(ErrorModel model)? missingRequiredValue,
-    TResult Function(ErrorModel model)? invalid,
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -241,6 +259,8 @@ class _$UnauthorizedImpl implements Unauthorized {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
   }) {
     return unauthorized(this);
   }
@@ -257,6 +277,8 @@ class _$UnauthorizedImpl implements Unauthorized {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
   }) {
     return unauthorized?.call(this);
   }
@@ -273,6 +295,8 @@ class _$UnauthorizedImpl implements Unauthorized {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -283,10 +307,9 @@ class _$UnauthorizedImpl implements Unauthorized {
 }
 
 abstract class Unauthorized implements CustomException {
-  const factory Unauthorized({required final ErrorModel model}) =
-      _$UnauthorizedImpl;
+  const factory Unauthorized({final ErrorModel? model}) = _$UnauthorizedImpl;
 
-  ErrorModel get model;
+  ErrorModel? get model;
   @JsonKey(ignore: true)
   _$$UnauthorizedImplCopyWith<_$UnauthorizedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -298,7 +321,7 @@ abstract class _$$UserNotFoundImplCopyWith<$Res> {
           _$UserNotFoundImpl value, $Res Function(_$UserNotFoundImpl) then) =
       __$$UserNotFoundImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorModel model});
+  $Res call({ErrorModel? model});
 }
 
 /// @nodoc
@@ -312,13 +335,13 @@ class __$$UserNotFoundImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = null,
+    Object? model = freezed,
   }) {
     return _then(_$UserNotFoundImpl(
-      model: null == model
+      model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as ErrorModel,
+              as ErrorModel?,
     ));
   }
 }
@@ -326,10 +349,10 @@ class __$$UserNotFoundImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UserNotFoundImpl implements UserNotFound {
-  const _$UserNotFoundImpl({required this.model});
+  const _$UserNotFoundImpl({this.model});
 
   @override
-  final ErrorModel model;
+  final ErrorModel? model;
 
   @override
   String toString() {
@@ -356,15 +379,17 @@ class _$UserNotFoundImpl implements UserNotFound {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel model) unauthorized,
-    required TResult Function(ErrorModel model) userNotFound,
-    required TResult Function(ErrorModel model) tokenExpired,
-    required TResult Function(ErrorModel model) productNotFound,
-    required TResult Function(ErrorModel model) missingRequiredValue,
-    required TResult Function(ErrorModel model) invalid,
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
   }) {
     return userNotFound(model);
   }
@@ -372,15 +397,17 @@ class _$UserNotFoundImpl implements UserNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ErrorModel model)? unauthorized,
-    TResult? Function(ErrorModel model)? userNotFound,
-    TResult? Function(ErrorModel model)? tokenExpired,
-    TResult? Function(ErrorModel model)? productNotFound,
-    TResult? Function(ErrorModel model)? missingRequiredValue,
-    TResult? Function(ErrorModel model)? invalid,
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
     TResult? Function()? serverError,
     TResult? Function()? networkError,
     TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
   }) {
     return userNotFound?.call(model);
   }
@@ -388,15 +415,17 @@ class _$UserNotFoundImpl implements UserNotFound {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel model)? unauthorized,
-    TResult Function(ErrorModel model)? userNotFound,
-    TResult Function(ErrorModel model)? tokenExpired,
-    TResult Function(ErrorModel model)? productNotFound,
-    TResult Function(ErrorModel model)? missingRequiredValue,
-    TResult Function(ErrorModel model)? invalid,
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -417,6 +446,8 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
   }) {
     return userNotFound(this);
   }
@@ -433,6 +464,8 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
   }) {
     return userNotFound?.call(this);
   }
@@ -449,6 +482,8 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -459,10 +494,9 @@ class _$UserNotFoundImpl implements UserNotFound {
 }
 
 abstract class UserNotFound implements CustomException {
-  const factory UserNotFound({required final ErrorModel model}) =
-      _$UserNotFoundImpl;
+  const factory UserNotFound({final ErrorModel? model}) = _$UserNotFoundImpl;
 
-  ErrorModel get model;
+  ErrorModel? get model;
   @JsonKey(ignore: true)
   _$$UserNotFoundImplCopyWith<_$UserNotFoundImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -474,7 +508,7 @@ abstract class _$$TokenExpiredImplCopyWith<$Res> {
           _$TokenExpiredImpl value, $Res Function(_$TokenExpiredImpl) then) =
       __$$TokenExpiredImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorModel model});
+  $Res call({ErrorModel? model});
 }
 
 /// @nodoc
@@ -488,13 +522,13 @@ class __$$TokenExpiredImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = null,
+    Object? model = freezed,
   }) {
     return _then(_$TokenExpiredImpl(
-      model: null == model
+      model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as ErrorModel,
+              as ErrorModel?,
     ));
   }
 }
@@ -502,10 +536,10 @@ class __$$TokenExpiredImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TokenExpiredImpl implements TokenExpired {
-  const _$TokenExpiredImpl({required this.model});
+  const _$TokenExpiredImpl({this.model});
 
   @override
-  final ErrorModel model;
+  final ErrorModel? model;
 
   @override
   String toString() {
@@ -532,15 +566,17 @@ class _$TokenExpiredImpl implements TokenExpired {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel model) unauthorized,
-    required TResult Function(ErrorModel model) userNotFound,
-    required TResult Function(ErrorModel model) tokenExpired,
-    required TResult Function(ErrorModel model) productNotFound,
-    required TResult Function(ErrorModel model) missingRequiredValue,
-    required TResult Function(ErrorModel model) invalid,
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
   }) {
     return tokenExpired(model);
   }
@@ -548,15 +584,17 @@ class _$TokenExpiredImpl implements TokenExpired {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ErrorModel model)? unauthorized,
-    TResult? Function(ErrorModel model)? userNotFound,
-    TResult? Function(ErrorModel model)? tokenExpired,
-    TResult? Function(ErrorModel model)? productNotFound,
-    TResult? Function(ErrorModel model)? missingRequiredValue,
-    TResult? Function(ErrorModel model)? invalid,
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
     TResult? Function()? serverError,
     TResult? Function()? networkError,
     TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
   }) {
     return tokenExpired?.call(model);
   }
@@ -564,15 +602,17 @@ class _$TokenExpiredImpl implements TokenExpired {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel model)? unauthorized,
-    TResult Function(ErrorModel model)? userNotFound,
-    TResult Function(ErrorModel model)? tokenExpired,
-    TResult Function(ErrorModel model)? productNotFound,
-    TResult Function(ErrorModel model)? missingRequiredValue,
-    TResult Function(ErrorModel model)? invalid,
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
     required TResult orElse(),
   }) {
     if (tokenExpired != null) {
@@ -593,6 +633,8 @@ class _$TokenExpiredImpl implements TokenExpired {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
   }) {
     return tokenExpired(this);
   }
@@ -609,6 +651,8 @@ class _$TokenExpiredImpl implements TokenExpired {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
   }) {
     return tokenExpired?.call(this);
   }
@@ -625,6 +669,8 @@ class _$TokenExpiredImpl implements TokenExpired {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
     required TResult orElse(),
   }) {
     if (tokenExpired != null) {
@@ -635,10 +681,9 @@ class _$TokenExpiredImpl implements TokenExpired {
 }
 
 abstract class TokenExpired implements CustomException {
-  const factory TokenExpired({required final ErrorModel model}) =
-      _$TokenExpiredImpl;
+  const factory TokenExpired({final ErrorModel? model}) = _$TokenExpiredImpl;
 
-  ErrorModel get model;
+  ErrorModel? get model;
   @JsonKey(ignore: true)
   _$$TokenExpiredImplCopyWith<_$TokenExpiredImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -650,7 +695,7 @@ abstract class _$$ProductNotFoundImplCopyWith<$Res> {
           $Res Function(_$ProductNotFoundImpl) then) =
       __$$ProductNotFoundImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorModel model});
+  $Res call({ErrorModel? model});
 }
 
 /// @nodoc
@@ -664,13 +709,13 @@ class __$$ProductNotFoundImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = null,
+    Object? model = freezed,
   }) {
     return _then(_$ProductNotFoundImpl(
-      model: null == model
+      model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as ErrorModel,
+              as ErrorModel?,
     ));
   }
 }
@@ -678,10 +723,10 @@ class __$$ProductNotFoundImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ProductNotFoundImpl implements ProductNotFound {
-  const _$ProductNotFoundImpl({required this.model});
+  const _$ProductNotFoundImpl({this.model});
 
   @override
-  final ErrorModel model;
+  final ErrorModel? model;
 
   @override
   String toString() {
@@ -709,15 +754,17 @@ class _$ProductNotFoundImpl implements ProductNotFound {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel model) unauthorized,
-    required TResult Function(ErrorModel model) userNotFound,
-    required TResult Function(ErrorModel model) tokenExpired,
-    required TResult Function(ErrorModel model) productNotFound,
-    required TResult Function(ErrorModel model) missingRequiredValue,
-    required TResult Function(ErrorModel model) invalid,
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
   }) {
     return productNotFound(model);
   }
@@ -725,15 +772,17 @@ class _$ProductNotFoundImpl implements ProductNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ErrorModel model)? unauthorized,
-    TResult? Function(ErrorModel model)? userNotFound,
-    TResult? Function(ErrorModel model)? tokenExpired,
-    TResult? Function(ErrorModel model)? productNotFound,
-    TResult? Function(ErrorModel model)? missingRequiredValue,
-    TResult? Function(ErrorModel model)? invalid,
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
     TResult? Function()? serverError,
     TResult? Function()? networkError,
     TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
   }) {
     return productNotFound?.call(model);
   }
@@ -741,15 +790,17 @@ class _$ProductNotFoundImpl implements ProductNotFound {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel model)? unauthorized,
-    TResult Function(ErrorModel model)? userNotFound,
-    TResult Function(ErrorModel model)? tokenExpired,
-    TResult Function(ErrorModel model)? productNotFound,
-    TResult Function(ErrorModel model)? missingRequiredValue,
-    TResult Function(ErrorModel model)? invalid,
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
     required TResult orElse(),
   }) {
     if (productNotFound != null) {
@@ -770,6 +821,8 @@ class _$ProductNotFoundImpl implements ProductNotFound {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
   }) {
     return productNotFound(this);
   }
@@ -786,6 +839,8 @@ class _$ProductNotFoundImpl implements ProductNotFound {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
   }) {
     return productNotFound?.call(this);
   }
@@ -802,6 +857,8 @@ class _$ProductNotFoundImpl implements ProductNotFound {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
     required TResult orElse(),
   }) {
     if (productNotFound != null) {
@@ -812,10 +869,10 @@ class _$ProductNotFoundImpl implements ProductNotFound {
 }
 
 abstract class ProductNotFound implements CustomException {
-  const factory ProductNotFound({required final ErrorModel model}) =
+  const factory ProductNotFound({final ErrorModel? model}) =
       _$ProductNotFoundImpl;
 
-  ErrorModel get model;
+  ErrorModel? get model;
   @JsonKey(ignore: true)
   _$$ProductNotFoundImplCopyWith<_$ProductNotFoundImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -827,7 +884,7 @@ abstract class _$$MissingRequiredValueImplCopyWith<$Res> {
           $Res Function(_$MissingRequiredValueImpl) then) =
       __$$MissingRequiredValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorModel model});
+  $Res call({ErrorModel? model});
 }
 
 /// @nodoc
@@ -841,13 +898,13 @@ class __$$MissingRequiredValueImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = null,
+    Object? model = freezed,
   }) {
     return _then(_$MissingRequiredValueImpl(
-      model: null == model
+      model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as ErrorModel,
+              as ErrorModel?,
     ));
   }
 }
@@ -858,7 +915,7 @@ class _$MissingRequiredValueImpl implements MissingRequiredValue {
   const _$MissingRequiredValueImpl({required this.model});
 
   @override
-  final ErrorModel model;
+  final ErrorModel? model;
 
   @override
   String toString() {
@@ -887,15 +944,17 @@ class _$MissingRequiredValueImpl implements MissingRequiredValue {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel model) unauthorized,
-    required TResult Function(ErrorModel model) userNotFound,
-    required TResult Function(ErrorModel model) tokenExpired,
-    required TResult Function(ErrorModel model) productNotFound,
-    required TResult Function(ErrorModel model) missingRequiredValue,
-    required TResult Function(ErrorModel model) invalid,
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
   }) {
     return missingRequiredValue(model);
   }
@@ -903,15 +962,17 @@ class _$MissingRequiredValueImpl implements MissingRequiredValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ErrorModel model)? unauthorized,
-    TResult? Function(ErrorModel model)? userNotFound,
-    TResult? Function(ErrorModel model)? tokenExpired,
-    TResult? Function(ErrorModel model)? productNotFound,
-    TResult? Function(ErrorModel model)? missingRequiredValue,
-    TResult? Function(ErrorModel model)? invalid,
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
     TResult? Function()? serverError,
     TResult? Function()? networkError,
     TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
   }) {
     return missingRequiredValue?.call(model);
   }
@@ -919,15 +980,17 @@ class _$MissingRequiredValueImpl implements MissingRequiredValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel model)? unauthorized,
-    TResult Function(ErrorModel model)? userNotFound,
-    TResult Function(ErrorModel model)? tokenExpired,
-    TResult Function(ErrorModel model)? productNotFound,
-    TResult Function(ErrorModel model)? missingRequiredValue,
-    TResult Function(ErrorModel model)? invalid,
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
     required TResult orElse(),
   }) {
     if (missingRequiredValue != null) {
@@ -948,6 +1011,8 @@ class _$MissingRequiredValueImpl implements MissingRequiredValue {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
   }) {
     return missingRequiredValue(this);
   }
@@ -964,6 +1029,8 @@ class _$MissingRequiredValueImpl implements MissingRequiredValue {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
   }) {
     return missingRequiredValue?.call(this);
   }
@@ -980,6 +1047,8 @@ class _$MissingRequiredValueImpl implements MissingRequiredValue {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
     required TResult orElse(),
   }) {
     if (missingRequiredValue != null) {
@@ -990,10 +1059,10 @@ class _$MissingRequiredValueImpl implements MissingRequiredValue {
 }
 
 abstract class MissingRequiredValue implements CustomException {
-  const factory MissingRequiredValue({required final ErrorModel model}) =
+  const factory MissingRequiredValue({required final ErrorModel? model}) =
       _$MissingRequiredValueImpl;
 
-  ErrorModel get model;
+  ErrorModel? get model;
   @JsonKey(ignore: true)
   _$$MissingRequiredValueImplCopyWith<_$MissingRequiredValueImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -1005,7 +1074,7 @@ abstract class _$$InvalidImplCopyWith<$Res> {
           _$InvalidImpl value, $Res Function(_$InvalidImpl) then) =
       __$$InvalidImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorModel model});
+  $Res call({ErrorModel? model});
 }
 
 /// @nodoc
@@ -1019,13 +1088,13 @@ class __$$InvalidImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = null,
+    Object? model = freezed,
   }) {
     return _then(_$InvalidImpl(
-      model: null == model
+      model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as ErrorModel,
+              as ErrorModel?,
     ));
   }
 }
@@ -1033,10 +1102,10 @@ class __$$InvalidImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InvalidImpl implements Invalid {
-  const _$InvalidImpl({required this.model});
+  const _$InvalidImpl({this.model});
 
   @override
-  final ErrorModel model;
+  final ErrorModel? model;
 
   @override
   String toString() {
@@ -1063,15 +1132,17 @@ class _$InvalidImpl implements Invalid {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel model) unauthorized,
-    required TResult Function(ErrorModel model) userNotFound,
-    required TResult Function(ErrorModel model) tokenExpired,
-    required TResult Function(ErrorModel model) productNotFound,
-    required TResult Function(ErrorModel model) missingRequiredValue,
-    required TResult Function(ErrorModel model) invalid,
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
   }) {
     return invalid(model);
   }
@@ -1079,15 +1150,17 @@ class _$InvalidImpl implements Invalid {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ErrorModel model)? unauthorized,
-    TResult? Function(ErrorModel model)? userNotFound,
-    TResult? Function(ErrorModel model)? tokenExpired,
-    TResult? Function(ErrorModel model)? productNotFound,
-    TResult? Function(ErrorModel model)? missingRequiredValue,
-    TResult? Function(ErrorModel model)? invalid,
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
     TResult? Function()? serverError,
     TResult? Function()? networkError,
     TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
   }) {
     return invalid?.call(model);
   }
@@ -1095,15 +1168,17 @@ class _$InvalidImpl implements Invalid {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel model)? unauthorized,
-    TResult Function(ErrorModel model)? userNotFound,
-    TResult Function(ErrorModel model)? tokenExpired,
-    TResult Function(ErrorModel model)? productNotFound,
-    TResult Function(ErrorModel model)? missingRequiredValue,
-    TResult Function(ErrorModel model)? invalid,
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
     required TResult orElse(),
   }) {
     if (invalid != null) {
@@ -1124,6 +1199,8 @@ class _$InvalidImpl implements Invalid {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
   }) {
     return invalid(this);
   }
@@ -1140,6 +1217,8 @@ class _$InvalidImpl implements Invalid {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
   }) {
     return invalid?.call(this);
   }
@@ -1156,6 +1235,8 @@ class _$InvalidImpl implements Invalid {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
     required TResult orElse(),
   }) {
     if (invalid != null) {
@@ -1166,9 +1247,9 @@ class _$InvalidImpl implements Invalid {
 }
 
 abstract class Invalid implements CustomException {
-  const factory Invalid({required final ErrorModel model}) = _$InvalidImpl;
+  const factory Invalid({final ErrorModel? model}) = _$InvalidImpl;
 
-  ErrorModel get model;
+  ErrorModel? get model;
   @JsonKey(ignore: true)
   _$$InvalidImplCopyWith<_$InvalidImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1212,15 +1293,17 @@ class _$ServerErrorImpl implements ServerError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel model) unauthorized,
-    required TResult Function(ErrorModel model) userNotFound,
-    required TResult Function(ErrorModel model) tokenExpired,
-    required TResult Function(ErrorModel model) productNotFound,
-    required TResult Function(ErrorModel model) missingRequiredValue,
-    required TResult Function(ErrorModel model) invalid,
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
   }) {
     return serverError();
   }
@@ -1228,15 +1311,17 @@ class _$ServerErrorImpl implements ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ErrorModel model)? unauthorized,
-    TResult? Function(ErrorModel model)? userNotFound,
-    TResult? Function(ErrorModel model)? tokenExpired,
-    TResult? Function(ErrorModel model)? productNotFound,
-    TResult? Function(ErrorModel model)? missingRequiredValue,
-    TResult? Function(ErrorModel model)? invalid,
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
     TResult? Function()? serverError,
     TResult? Function()? networkError,
     TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
   }) {
     return serverError?.call();
   }
@@ -1244,15 +1329,17 @@ class _$ServerErrorImpl implements ServerError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel model)? unauthorized,
-    TResult Function(ErrorModel model)? userNotFound,
-    TResult Function(ErrorModel model)? tokenExpired,
-    TResult Function(ErrorModel model)? productNotFound,
-    TResult Function(ErrorModel model)? missingRequiredValue,
-    TResult Function(ErrorModel model)? invalid,
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -1273,6 +1360,8 @@ class _$ServerErrorImpl implements ServerError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
   }) {
     return serverError(this);
   }
@@ -1289,6 +1378,8 @@ class _$ServerErrorImpl implements ServerError {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
   }) {
     return serverError?.call(this);
   }
@@ -1305,6 +1396,8 @@ class _$ServerErrorImpl implements ServerError {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -1356,15 +1449,17 @@ class _$NetworkErrorImpl implements NetworkError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel model) unauthorized,
-    required TResult Function(ErrorModel model) userNotFound,
-    required TResult Function(ErrorModel model) tokenExpired,
-    required TResult Function(ErrorModel model) productNotFound,
-    required TResult Function(ErrorModel model) missingRequiredValue,
-    required TResult Function(ErrorModel model) invalid,
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
   }) {
     return networkError();
   }
@@ -1372,15 +1467,17 @@ class _$NetworkErrorImpl implements NetworkError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ErrorModel model)? unauthorized,
-    TResult? Function(ErrorModel model)? userNotFound,
-    TResult? Function(ErrorModel model)? tokenExpired,
-    TResult? Function(ErrorModel model)? productNotFound,
-    TResult? Function(ErrorModel model)? missingRequiredValue,
-    TResult? Function(ErrorModel model)? invalid,
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
     TResult? Function()? serverError,
     TResult? Function()? networkError,
     TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
   }) {
     return networkError?.call();
   }
@@ -1388,15 +1485,17 @@ class _$NetworkErrorImpl implements NetworkError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel model)? unauthorized,
-    TResult Function(ErrorModel model)? userNotFound,
-    TResult Function(ErrorModel model)? tokenExpired,
-    TResult Function(ErrorModel model)? productNotFound,
-    TResult Function(ErrorModel model)? missingRequiredValue,
-    TResult Function(ErrorModel model)? invalid,
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
     required TResult orElse(),
   }) {
     if (networkError != null) {
@@ -1417,6 +1516,8 @@ class _$NetworkErrorImpl implements NetworkError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
   }) {
     return networkError(this);
   }
@@ -1433,6 +1534,8 @@ class _$NetworkErrorImpl implements NetworkError {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
   }) {
     return networkError?.call(this);
   }
@@ -1449,6 +1552,8 @@ class _$NetworkErrorImpl implements NetworkError {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
     required TResult orElse(),
   }) {
     if (networkError != null) {
@@ -1500,15 +1605,17 @@ class _$UnknownErrorImpl implements UnknownError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel model) unauthorized,
-    required TResult Function(ErrorModel model) userNotFound,
-    required TResult Function(ErrorModel model) tokenExpired,
-    required TResult Function(ErrorModel model) productNotFound,
-    required TResult Function(ErrorModel model) missingRequiredValue,
-    required TResult Function(ErrorModel model) invalid,
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
   }) {
     return unknownError();
   }
@@ -1516,15 +1623,17 @@ class _$UnknownErrorImpl implements UnknownError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ErrorModel model)? unauthorized,
-    TResult? Function(ErrorModel model)? userNotFound,
-    TResult? Function(ErrorModel model)? tokenExpired,
-    TResult? Function(ErrorModel model)? productNotFound,
-    TResult? Function(ErrorModel model)? missingRequiredValue,
-    TResult? Function(ErrorModel model)? invalid,
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
     TResult? Function()? serverError,
     TResult? Function()? networkError,
     TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
   }) {
     return unknownError?.call();
   }
@@ -1532,15 +1641,17 @@ class _$UnknownErrorImpl implements UnknownError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel model)? unauthorized,
-    TResult Function(ErrorModel model)? userNotFound,
-    TResult Function(ErrorModel model)? tokenExpired,
-    TResult Function(ErrorModel model)? productNotFound,
-    TResult Function(ErrorModel model)? missingRequiredValue,
-    TResult Function(ErrorModel model)? invalid,
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
     required TResult orElse(),
   }) {
     if (unknownError != null) {
@@ -1561,6 +1672,8 @@ class _$UnknownErrorImpl implements UnknownError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
   }) {
     return unknownError(this);
   }
@@ -1577,6 +1690,8 @@ class _$UnknownErrorImpl implements UnknownError {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(NetworkError value)? networkError,
     TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
   }) {
     return unknownError?.call(this);
   }
@@ -1593,6 +1708,8 @@ class _$UnknownErrorImpl implements UnknownError {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
     required TResult orElse(),
   }) {
     if (unknownError != null) {
@@ -1604,4 +1721,316 @@ class _$UnknownErrorImpl implements UnknownError {
 
 abstract class UnknownError implements CustomException {
   const factory UnknownError() = _$UnknownErrorImpl;
+}
+
+/// @nodoc
+abstract class _$$FormatErrorImplCopyWith<$Res> {
+  factory _$$FormatErrorImplCopyWith(
+          _$FormatErrorImpl value, $Res Function(_$FormatErrorImpl) then) =
+      __$$FormatErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FormatErrorImplCopyWithImpl<$Res>
+    extends _$CustomExceptionCopyWithImpl<$Res, _$FormatErrorImpl>
+    implements _$$FormatErrorImplCopyWith<$Res> {
+  __$$FormatErrorImplCopyWithImpl(
+      _$FormatErrorImpl _value, $Res Function(_$FormatErrorImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FormatErrorImpl implements FormatError {
+  const _$FormatErrorImpl();
+
+  @override
+  String toString() {
+    return 'CustomException.formatError()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FormatErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
+    required TResult Function() serverError,
+    required TResult Function() networkError,
+    required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
+  }) {
+    return formatError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
+    TResult? Function()? serverError,
+    TResult? Function()? networkError,
+    TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
+  }) {
+    return formatError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
+    TResult Function()? serverError,
+    TResult Function()? networkError,
+    TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
+    required TResult orElse(),
+  }) {
+    if (formatError != null) {
+      return formatError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Unauthorized value) unauthorized,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(TokenExpired value) tokenExpired,
+    required TResult Function(ProductNotFound value) productNotFound,
+    required TResult Function(MissingRequiredValue value) missingRequiredValue,
+    required TResult Function(Invalid value) invalid,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(NetworkError value) networkError,
+    required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
+  }) {
+    return formatError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Unauthorized value)? unauthorized,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(TokenExpired value)? tokenExpired,
+    TResult? Function(ProductNotFound value)? productNotFound,
+    TResult? Function(MissingRequiredValue value)? missingRequiredValue,
+    TResult? Function(Invalid value)? invalid,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NetworkError value)? networkError,
+    TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
+  }) {
+    return formatError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Unauthorized value)? unauthorized,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(TokenExpired value)? tokenExpired,
+    TResult Function(ProductNotFound value)? productNotFound,
+    TResult Function(MissingRequiredValue value)? missingRequiredValue,
+    TResult Function(Invalid value)? invalid,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NetworkError value)? networkError,
+    TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
+    required TResult orElse(),
+  }) {
+    if (formatError != null) {
+      return formatError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormatError implements CustomException {
+  const factory FormatError() = _$FormatErrorImpl;
+}
+
+/// @nodoc
+abstract class _$$TimeoutExceptionImplCopyWith<$Res> {
+  factory _$$TimeoutExceptionImplCopyWith(_$TimeoutExceptionImpl value,
+          $Res Function(_$TimeoutExceptionImpl) then) =
+      __$$TimeoutExceptionImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$TimeoutExceptionImplCopyWithImpl<$Res>
+    extends _$CustomExceptionCopyWithImpl<$Res, _$TimeoutExceptionImpl>
+    implements _$$TimeoutExceptionImplCopyWith<$Res> {
+  __$$TimeoutExceptionImplCopyWithImpl(_$TimeoutExceptionImpl _value,
+      $Res Function(_$TimeoutExceptionImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$TimeoutExceptionImpl implements TimeoutException {
+  const _$TimeoutExceptionImpl();
+
+  @override
+  String toString() {
+    return 'CustomException.timeoutError()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$TimeoutExceptionImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ErrorModel? model) unauthorized,
+    required TResult Function(ErrorModel? model) userNotFound,
+    required TResult Function(ErrorModel? model) tokenExpired,
+    required TResult Function(ErrorModel? model) productNotFound,
+    required TResult Function(ErrorModel? model) missingRequiredValue,
+    required TResult Function(ErrorModel? model) invalid,
+    required TResult Function() serverError,
+    required TResult Function() networkError,
+    required TResult Function() unknownError,
+    required TResult Function() formatError,
+    required TResult Function() timeoutError,
+  }) {
+    return timeoutError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ErrorModel? model)? unauthorized,
+    TResult? Function(ErrorModel? model)? userNotFound,
+    TResult? Function(ErrorModel? model)? tokenExpired,
+    TResult? Function(ErrorModel? model)? productNotFound,
+    TResult? Function(ErrorModel? model)? missingRequiredValue,
+    TResult? Function(ErrorModel? model)? invalid,
+    TResult? Function()? serverError,
+    TResult? Function()? networkError,
+    TResult? Function()? unknownError,
+    TResult? Function()? formatError,
+    TResult? Function()? timeoutError,
+  }) {
+    return timeoutError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ErrorModel? model)? unauthorized,
+    TResult Function(ErrorModel? model)? userNotFound,
+    TResult Function(ErrorModel? model)? tokenExpired,
+    TResult Function(ErrorModel? model)? productNotFound,
+    TResult Function(ErrorModel? model)? missingRequiredValue,
+    TResult Function(ErrorModel? model)? invalid,
+    TResult Function()? serverError,
+    TResult Function()? networkError,
+    TResult Function()? unknownError,
+    TResult Function()? formatError,
+    TResult Function()? timeoutError,
+    required TResult orElse(),
+  }) {
+    if (timeoutError != null) {
+      return timeoutError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Unauthorized value) unauthorized,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(TokenExpired value) tokenExpired,
+    required TResult Function(ProductNotFound value) productNotFound,
+    required TResult Function(MissingRequiredValue value) missingRequiredValue,
+    required TResult Function(Invalid value) invalid,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(NetworkError value) networkError,
+    required TResult Function(UnknownError value) unknownError,
+    required TResult Function(FormatError value) formatError,
+    required TResult Function(TimeoutException value) timeoutError,
+  }) {
+    return timeoutError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Unauthorized value)? unauthorized,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(TokenExpired value)? tokenExpired,
+    TResult? Function(ProductNotFound value)? productNotFound,
+    TResult? Function(MissingRequiredValue value)? missingRequiredValue,
+    TResult? Function(Invalid value)? invalid,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NetworkError value)? networkError,
+    TResult? Function(UnknownError value)? unknownError,
+    TResult? Function(FormatError value)? formatError,
+    TResult? Function(TimeoutException value)? timeoutError,
+  }) {
+    return timeoutError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Unauthorized value)? unauthorized,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(TokenExpired value)? tokenExpired,
+    TResult Function(ProductNotFound value)? productNotFound,
+    TResult Function(MissingRequiredValue value)? missingRequiredValue,
+    TResult Function(Invalid value)? invalid,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NetworkError value)? networkError,
+    TResult Function(UnknownError value)? unknownError,
+    TResult Function(FormatError value)? formatError,
+    TResult Function(TimeoutException value)? timeoutError,
+    required TResult orElse(),
+  }) {
+    if (timeoutError != null) {
+      return timeoutError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TimeoutException implements CustomException {
+  const factory TimeoutException() = _$TimeoutExceptionImpl;
 }

@@ -1,5 +1,8 @@
 import 'package:flutter_best_practice/app/error/result.dart';
 
+/// Stream Usecase interface
+/// T : 모델
+/// P : 파라미터
 abstract class StreamUseCase<T, P> {
   Stream<Result<T, Exception>> call({required P params});
 

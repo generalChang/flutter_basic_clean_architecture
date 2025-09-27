@@ -8,7 +8,7 @@ import 'package:flutter_best_practice/domain/param/task/get_task_params.dart';
 import 'package:flutter_best_practice/domain/repository/task_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../app/error/api_call.dart';
+import '../../app/util/api_call.dart';
 import '../../app/error/custom_exception.dart';
 import '../../app/error/result.dart';
 import '../../app/foundation/usecase/no_params.dart';
@@ -17,11 +17,10 @@ import '../../domain/param/task/update_task_params.dart';
 
 part 'generated/task_repository_impl.g.dart';
 
-@Riverpod(
-  keepAlive: true
-)
-TaskRepository taskRepository(Ref ref){
-  return TaskRepositoryImpl(localDataSource: ref.read(taskLocalDataSourceProvider));
+@Riverpod(keepAlive: true)
+TaskRepository taskRepository(Ref ref) {
+  return TaskRepositoryImpl(
+      localDataSource: ref.read(taskLocalDataSourceProvider));
 }
 
 class TaskRepositoryImpl implements TaskRepository {
@@ -35,7 +34,7 @@ class TaskRepositoryImpl implements TaskRepository {
   @override
   Future<Result<void, CustomException>> addTask(
       {required AddTaskParams params}) async {
-    return await apiCall(task: () async {
+    return await ActionCallGuard.runFuture(task: () async {
       return await _localDataSource.addTask(
           task: Task(
               title: params.title,
@@ -48,7 +47,7 @@ class TaskRepositoryImpl implements TaskRepository {
   @override
   Future<Result<List<TaskModel>, CustomException>> getAllTasks(
       {required NoParams params}) async {
-    return await apiCall(task: () async {
+    return await ActionCallGuard.runFuture(task: () async {
       final result = await _localDataSource.getAllTasks();
       return result.map((e) => e.toModel()).toList();
     });
@@ -58,7 +57,7 @@ class TaskRepositoryImpl implements TaskRepository {
   @override
   Future<Result<TaskModel?, CustomException>> getTask(
       {required GetTaskParams params}) async {
-    return await apiCall(task: () async {
+    return await ActionCallGuard.runFuture(task: () async {
       final result = await _localDataSource.getTask(id: params.id);
       return result?.toModel();
     });
@@ -68,7 +67,7 @@ class TaskRepositoryImpl implements TaskRepository {
   @override
   Future<Result<void, CustomException>> updateTask(
       {required UpdateTaskParams params}) async {
-    return await apiCall(task: () async {
+    return await ActionCallGuard.runFuture(task: () async {
       return await _localDataSource.updateTask(
           id: params.id,
           updatedTask: Task(
@@ -82,7 +81,7 @@ class TaskRepositoryImpl implements TaskRepository {
   @override
   Future<Result<void, CustomException>> deleteTask(
       {required DeleteTaskParams params}) async {
-    return await apiCall(task: () async {
+    return await ActionCallGuard.runFuture(task: () async {
       return await _localDataSource.deleteTask(id: params.id);
     });
   }
