@@ -1,4 +1,4 @@
-import '../../data/source/local/_core/hive_initializer.dart';
+import '../service/database/hive_initializer.dart';
 import 'environment_type.dart';
 import 'package:flutter/material.dart';
 

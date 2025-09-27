@@ -1,4 +1,4 @@
-import 'package:flutter_best_practice/data/source/local/_core/hive_initializer.dart';
+import 'package:flutter_best_practice/app/service/database/hive_initializer.dart';
 import 'package:flutter_best_practice/data/entity/task/task.dart';
 import 'package:flutter_best_practice/data/source/local/task/task_local_data_source.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
