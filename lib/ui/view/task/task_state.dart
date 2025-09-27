@@ -1,7 +1,8 @@
-import 'package:flutter_best_practice/core/error_handling/custom_exception.dart';
-import 'package:flutter_best_practice/core/status/status.dart';
 import 'package:flutter_best_practice/domain/model/task/task_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../app/error/custom_exception.dart';
+import '../../../app/foundation/status/status.dart';
 
 part 'generated/task_state.freezed.dart';
 

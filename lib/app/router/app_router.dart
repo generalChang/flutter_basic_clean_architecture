@@ -9,8 +9,8 @@ import 'package:flutter_best_practice/ui/view/task/task_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../core/route/app_router_interceptor.dart';
 import '../../ui/view/home/home_view.dart';
+import '../foundation/route/app_router_interceptor.dart';
 import 'auth_route_interceptor.dart';
 
 part 'generated/app_router.g.dart';

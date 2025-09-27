@@ -1,4 +1,5 @@
-import '../../core/route/route_info.dart';
+
+import '../foundation/route/route_info.dart';
 
 class Routes {
   static const RouteInfo auth = RouteInfo(name: '/auth', path: '/auth');

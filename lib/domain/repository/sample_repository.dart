@@ -1,6 +1,6 @@
-import '../../core/error_handling/custom_exception.dart';
-import '../../core/error_handling/result.dart';
-import '../../core/usecase/no_params.dart';
+import '../../app/error/custom_exception.dart';
+import '../../app/error/result.dart';
+import '../../app/foundation/usecase/no_params.dart';
 import '../model/sample/sample_model.dart';
 import '../param/sample/add_sample_params.dart';
 

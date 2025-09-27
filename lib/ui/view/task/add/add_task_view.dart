@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_best_practice/core/status/status.dart';
+import 'package:flutter_best_practice/app/foundation/status/status.dart';
 import 'package:flutter_best_practice/ui/view/task/add/add_task_controller.dart';
 import 'package:flutter_best_practice/ui/view/task/task_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

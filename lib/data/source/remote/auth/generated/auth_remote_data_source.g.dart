@@ -101,3 +101,26 @@ class _AuthRemoteDataSource implements AuthRemoteDataSource {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+String _$authRemoteDataSourceHash() =>
+    r'690e8af8581da8de67c1635e68206ed521b4bea5';
+
+/// See also [authRemoteDataSource].
+@ProviderFor(authRemoteDataSource)
+final authRemoteDataSourceProvider = Provider<AuthRemoteDataSource>.internal(
+  authRemoteDataSource,
+  name: r'authRemoteDataSourceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$authRemoteDataSourceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef AuthRemoteDataSourceRef = ProviderRef<AuthRemoteDataSource>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
